@@ -1224,3 +1224,10 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .form-wrap.sending .btn{opacity:.7}
 .form__error{margin:0;max-width:34em;text-align:right;font-size:13px;color:#ff8b9b}
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.brandtonic-link{display:inline-flex;color:inherit;transition:opacity .3s,transform .4s var(--ease)}
+.brandtonic-link:hover{opacity:.75;transform:translateY(-1px)}
+/* Logos de testimonios: una sola imagen negra transparente que toma el color del texto (máscara) */
+.quote__logo--mask{display:block;width:var(--lw);aspect-ratio:var(--ar);border-radius:0;overflow:visible;box-shadow:none;background:currentColor;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.quote .quote__logo--mask{color:#fff}
+.quote-slider--light .quote__logo--mask{color:#000}

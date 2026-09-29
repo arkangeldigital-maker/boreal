@@ -11,11 +11,11 @@
 
   /* ---------- Parciales: header, menú, footer, cortina ---------- */
   const links = [
-    ['index.html', 'Home', 'home'],
-    ['servicios.html', 'Servicios', 'servicios'],
-    ['borealizate.html', 'Borealízate', 'borealizate'],
-    ['proyectos.html', 'Proyectos', 'proyectos'],
-    ['contacto.html', 'Contacto', 'contacto'],
+    ['./', 'Home', 'home'],
+    ['servicios', 'Servicios', 'servicios'],
+    ['borealizate', 'Borealízate', 'borealizate'],
+    ['proyectos', 'Proyectos', 'proyectos'],
+    ['contacto', 'Contacto', 'contacto'],
   ];
   const navHTML = links.map(([h, t, k]) => `<a href="${h}"${k === page ? ' class="active" aria-current="page"' : ''}>${t}</a>`).join('');
   const ctaText = page === 'sesion' ? 'Agenda una Sesión Norte' : 'Sesión Norte';
@@ -43,7 +43,7 @@
     </svg>`;
   };
   let logoId = 0;
-  const logo = () => `<a href="index.html" class="logo" aria-label="Boreal, inicio">${logoSVG()}</a>`;
+  const logo = () => `<a href="./" class="logo" aria-label="Boreal, inicio">${logoSVG()}</a>`;
 
   body.insertAdjacentHTML('afterbegin', `
     <div class="curtain" aria-hidden="true">
@@ -55,13 +55,13 @@
       <div class="container header__in">
         ${logo()}
         <nav class="nav" aria-label="Principal">${navHTML}</nav>
-        <a href="sesion-norte.html" class="btn btn--gold btn--sm">${ctaText} <span class="arr">→</span></a>
+        <a href="sesion-norte" class="btn btn--gold btn--sm">${ctaText} <span class="arr">→</span></a>
         <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </header>
     <nav class="mnav" aria-label="Menú móvil">
       ${links.map(([h, t, k], i) => `<a href="${h}" style="transition-delay:${.15 + i * .06}s"${k === page ? ' class="active"' : ''}>${t}</a>`).join('')}
-      <a href="sesion-norte.html" class="btn btn--gold">Sesión Norte <span class="arr">→</span></a>
+      <a href="sesion-norte" class="btn btn--gold">Sesión Norte <span class="arr">→</span></a>
       <img class="mnav__ring" src="${fig('fullcolor')}" alt="">
     </nav>`);
 
@@ -72,7 +72,7 @@
     in: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.7 4.8 6.1V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>',
     fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>',
   };
-  const socials = `<div class="socials"><a href="#" aria-label="Instagram">${ico.ig}</a><a href="#" aria-label="LinkedIn">${ico.in}</a><a href="#" aria-label="Facebook">${ico.fb}</a></div>`;
+  const socials = `<div class="socials"><a href="https://www.instagram.com/borealmd/" target="_blank" rel="noopener" aria-label="Instagram">${ico.ig}</a><a href="https://www.linkedin.com/company/boreal-marketing-digital/" target="_blank" rel="noopener" aria-label="LinkedIn">${ico.in}</a><a href="https://www.facebook.com/borealmarketingdigital" target="_blank" rel="noopener" aria-label="Facebook">${ico.fb}</a></div>`;
   // Logotipo Brandtonic redibujado en SVG (trazos finos, A sin travesaño con remate curvo)
   const brandtonic = `<svg class="brandtonic" viewBox="-4 -4 680 108" role="img" aria-label="Brandtonic" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter">
       <path d="M6 2V98M6 2H30C54 2 54 48 30 48H6M6 48H34C64 48 64 98 34 98H6"/>
@@ -86,7 +86,7 @@
       <path d="M568 2V98"/>
       <path d="M668 20C654 -2 598 -4 598 50C598 104 654 102 668 80"/>
     </svg>`;
-  const sinergia = `<p class="sinergia">EN SINERGIA CON ${brandtonic}</p>`;
+  const sinergia = `<p class="sinergia">EN SINERGIA CON <a class="brandtonic-link" href="https://www.instagram.com/brandtonicestudio/" target="_blank" rel="noopener" aria-label="Brandtonic en Instagram">${brandtonic}</a></p>`;
   const isContact = page === 'contacto';
 
   body.insertAdjacentHTML('beforeend', `
@@ -385,10 +385,10 @@
       { q: '¿Cómo prefieres avanzar?', o: [['Una sesión enfocada de 90 minutos', 'n'], ['Acompañamiento con sesiones periódicas', 'm'], ['Que Boreal lidere el proyecto integral', 'l']] },
     ];
     const R = {
-      n: ['Sesión Norte', 'Necesitas claridad antes de invertir. En 90 minutos ordenamos prioridades y trazamos tu ruta de 30 días.', 'sesion-norte.html', 'Pagar y agendar Sesión Norte', '2'],
-      b: ['Blueprint Boreal', 'Tu marca necesita una base estratégica sólida. Empezamos con la Sesión Norte y construimos tu blueprint en 2 a 3 semanas.', 'servicios.html#blueprint', 'Conocer Blueprint Boreal', '1'],
-      l: ['Lanzamiento Integral', 'Estás listo para salir al mercado con todo. El primer paso obligatorio es la Sesión Norte.', 'servicios.html#lanzamiento', 'Ver Lanzamiento Integral', '3'],
-      m: ['Mentorías personalizadas', 'Tu equipo puede ejecutar; necesitas dirección senior y control de calidad.', 'servicios.html#mentorias', 'Ver Mentorías', '4'],
+      n: ['Sesión Norte', 'Necesitas claridad antes de invertir. En 90 minutos ordenamos prioridades y trazamos tu ruta de 30 días.', 'sesion-norte', 'Pagar y agendar Sesión Norte', '2'],
+      b: ['Blueprint Boreal', 'Tu marca necesita una base estratégica sólida. Empezamos con la Sesión Norte y construimos tu blueprint en 2 a 3 semanas.', 'servicios#blueprint', 'Conocer Blueprint Boreal', '1'],
+      l: ['Lanzamiento Integral', 'Estás listo para salir al mercado con todo. El primer paso obligatorio es la Sesión Norte.', 'servicios#lanzamiento', 'Ver Lanzamiento Integral', '3'],
+      m: ['Mentorías personalizadas', 'Tu equipo puede ejecutar; necesitas dirección senior y control de calidad.', 'servicios#mentorias', 'Ver Mentorías', '4'],
     };
     const box = $('.quiz', modal);
     let step = 0, votes = [];
