@@ -300,6 +300,34 @@
     go(0);
   });
 
+  /* ---------- Aro de "Servicios" (Home): al llegar a media pantalla baja con el scroll,
+     se queda enmarcando los dots durante los 3 servicios y se va con la sección; al subir vuelve a su lugar ---------- */
+  (() => {
+    const ring = document.querySelector('.svc-intro__ring'), wrap = document.querySelector('.svc-scroll');
+    if (!ring || !wrap || reduce) return;
+    const mq = matchMedia('(max-width: 820px)');
+    let s0 = 0, max = 0;
+    const measure = () => {
+      ring.style.translate = '';
+      if (mq.matches) return;
+      const r = ring.getBoundingClientRect();
+      const center = r.top + scrollY + r.height / 2;                 // centro del aro en el documento
+      const wrapTop = wrap.getBoundingClientRect().top + scrollY;
+      const run = wrap.offsetHeight - innerHeight;                   // tramo en que los servicios están fijos
+      s0 = center - innerHeight / 2;                                 // el aro llega a media pantalla
+      max = Math.max(0, wrapTop + run - s0);                         // se suelta cuando termina el bloque fijo
+    };
+    const update = () => {
+      if (mq.matches) return;
+      const t = Math.min(max, Math.max(0, scrollY - s0));
+      ring.style.translate = t ? `0 ${t.toFixed(1)}px` : '';
+    };
+    addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', () => { measure(); update(); });
+    addEventListener('load', () => { measure(); update(); });
+    measure(); update();
+  })();
+
   /* ---------- Servicios guiados por scroll ---------- */
   $$('.svc-scroll').forEach(wrap => {
     const items = $$('.svc-item', wrap), prism = $('.svc-prism', wrap), dotsNav = $('.svc-dots', wrap);
