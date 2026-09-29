@@ -72,7 +72,7 @@
     in: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.7 4.8 6.1V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>',
     fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>',
   };
-  const socials = `<div class="socials"><a href="#" aria-label="Instagram">${ico.ig}</a><a href="#" aria-label="LinkedIn">${ico.in}</a><a href="#" aria-label="Facebook">${ico.fb}</a></div>`;
+  const socials = `<div class="socials"><a href="https://www.instagram.com/borealmd/" target="_blank" rel="noopener" aria-label="Instagram">${ico.ig}</a><a href="https://www.linkedin.com/company/boreal-marketing-digital/" target="_blank" rel="noopener" aria-label="LinkedIn">${ico.in}</a><a href="https://www.facebook.com/borealmarketingdigital" target="_blank" rel="noopener" aria-label="Facebook">${ico.fb}</a></div>`;
   // Logotipo Brandtonic redibujado en SVG (trazos finos, A sin travesaño con remate curvo)
   const brandtonic = `<svg class="brandtonic" viewBox="-4 -4 680 108" role="img" aria-label="Brandtonic" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter">
       <path d="M6 2V98M6 2H30C54 2 54 48 30 48H6M6 48H34C64 48 64 98 34 98H6"/>
