@@ -6,7 +6,7 @@
  */
 
 // ---- Configuración ----
-const DESTINO = 'angelcobos@outlook.com';
+const DESTINO = 'hola@borealmarketing.mx';
 const ASUNTO  = 'Nueva solicitud desde el sitio de Boreal';
 
 header('Content-Type: application/json; charset=utf-8');

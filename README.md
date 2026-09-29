@@ -13,7 +13,7 @@ Para verlo en local:
 npx http-server . -p 5178
 ```
 
-Pendiente antes de publicar: completar o quitar los 4 testimonios marcados como `[Testimonio del cliente]` en `index.html` y `sesion-norte.html`.
+Testimonios: los mismos 4 en Home y Sesión Norte (logos en `assets/testimonios/`, blancos en Home y negros en Sesión Norte vía máscara CSS).
 
 ## URLs amigables
 
