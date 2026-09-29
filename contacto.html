@@ -31,7 +31,7 @@
         </ul>
       </div>
 
-      <form class="form-wrap reveal reveal--right" id="contact-form" novalidate style="--d:.3s">
+      <form class="form-wrap reveal reveal--right" id="contact-form" action="contacto.php" method="post" novalidate style="--d:.3s">
         <div class="form">
         <h2>Cuéntanos de tu proyecto</h2>
         <div class="field"><label for="f-nombre">Nombre completo</label><input id="f-nombre" name="nombre" placeholder="Ej. Ana Martínez" autocomplete="name"><p class="msg"></p></div>
@@ -58,16 +58,19 @@
         <div class="done" aria-live="polite">
           <div>
             <img src="assets/fig/fullcolor.webp" alt="">
-            <h3>¡Gracias! Ya casi está.</h3>
-            <p>Abre tu correo para enviarnos tu solicitud. Te responderemos en menos de 24 horas.</p>
-            <a id="mailto" class="btn btn--gold" href="mailto:hola@borealmarketing.mx">Enviar por correo <span class="arr">→</span></a>
+            <h3>¡Gracias! Recibimos tu solicitud.</h3>
+            <p>Te responderemos en menos de 24 horas.</p>
             <p style="margin-top:14px"><button type="button" class="link" data-reset style="color:#fff">Enviar otra solicitud</button></p>
           </div>
         </div>
         </div>
-        <label class="chk"><input type="checkbox" id="priv"> He leído y aceptado la política de privacidad</label>
+        <!-- campos anti-spam (invisibles) -->
+        <div class="hp" aria-hidden="true"><label>Sitio web <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="t" value="">
+        <label class="chk"><input type="checkbox" id="priv" name="acepto" value="si"> He leído y aceptado la <a href="assets/legal/aviso-de-privacidad.pdf" target="_blank" rel="noopener">política de privacidad</a></label>
         <div class="form__foot">
-          <button type="submit" class="btn btn--gold">Enviar solicitud <span class="arr">→</span></button>
+          <button type="submit" class="btn btn--gold" disabled>Enviar solicitud <span class="arr">→</span></button>
+          <p class="form__error" role="alert" hidden></p>
           <small>Respuesta garantizada en menos de 24 horas.</small>
         </div>
       </form>

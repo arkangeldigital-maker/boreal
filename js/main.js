@@ -14,7 +14,7 @@
     ['index.html', 'Home', 'home'],
     ['servicios.html', 'Servicios', 'servicios'],
     ['borealizate.html', 'Borealízate', 'borealizate'],
-    ['index.html#resultados', 'Proyectos', 'proyectos'],
+    ['proyectos.html', 'Proyectos', 'proyectos'],
     ['contacto.html', 'Contacto', 'contacto'],
   ];
   const navHTML = links.map(([h, t, k]) => `<a href="${h}"${k === page ? ' class="active" aria-current="page"' : ''}>${t}</a>`).join('');
@@ -99,12 +99,12 @@
             ${isContact ? sinergia.replace('EN SINERGIA CON', '<i>En sinergia con</i>') : ''}
             <a href="mailto:hola@borealmarketing.mx"><span class="ic">${ico.mail}</span>hola@borealmarketing.mx</a>
             <a href="https://wa.me/522291445559" target="_blank" rel="noopener"><span class="ic">${ico.wa}</span>(229) 144 5559</a>
-            ${isContact ? '' : socials}
+            ${socials}
           </div>
-          <div class="reveal" style="--d:.2s"><p><b>Boreal Marketing Digital</b></p>${isContact ? '' : sinergia}<p><i style="font-size:13px">Todos los derechos reservados</i></p>${isContact ? socials : ''}</div>
+          <div class="reveal" style="--d:.2s"><p><b>Boreal Marketing Digital</b></p>${isContact ? '' : sinergia}<p><i style="font-size:13px">Todos los derechos reservados</i></p></div>
         </div>
         <nav class="footer__nav" aria-label="Pie">${links.map(([h, t]) => `<a href="${h}">${t}</a>`).join('')}</nav>
-        <p class="footer__legal"><a href="#">Aviso de privacidad</a> <a href="#">Política de cookies</a> · © ${new Date().getFullYear()}</p>
+        <p class="footer__legal"><a href="assets/legal/aviso-de-privacidad.pdf" target="_blank" rel="noopener">Aviso de privacidad</a> <a href="assets/legal/politica-de-cookies.pdf" target="_blank" rel="noopener">Política de cookies</a> · © ${new Date().getFullYear()}</p>
       </div>
     </footer>`);
 
@@ -300,6 +300,34 @@
     go(0);
   });
 
+  /* ---------- Aro de "Servicios" (Home): al llegar a media pantalla baja con el scroll,
+     se queda enmarcando los dots durante los 3 servicios y se va con la sección; al subir vuelve a su lugar ---------- */
+  (() => {
+    const ring = document.querySelector('.svc-intro__ring'), wrap = document.querySelector('.svc-scroll');
+    if (!ring || !wrap || reduce) return;
+    const mq = matchMedia('(max-width: 820px)');
+    let s0 = 0, max = 0;
+    const measure = () => {
+      ring.style.translate = '';
+      if (mq.matches) return;
+      const r = ring.getBoundingClientRect();
+      const center = r.top + scrollY + r.height / 2;                 // centro del aro en el documento
+      const wrapTop = wrap.getBoundingClientRect().top + scrollY;
+      const run = wrap.offsetHeight - innerHeight;                   // tramo en que los servicios están fijos
+      s0 = center - innerHeight / 2;                                 // el aro llega a media pantalla
+      max = Math.max(0, wrapTop + run - s0);                         // se suelta cuando termina el bloque fijo
+    };
+    const update = () => {
+      if (mq.matches) return;
+      const t = Math.min(max, Math.max(0, scrollY - s0));
+      ring.style.translate = t ? `0 ${t.toFixed(1)}px` : '';
+    };
+    addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', () => { measure(); update(); });
+    addEventListener('load', () => { measure(); update(); });
+    measure(); update();
+  })();
+
   /* ---------- Servicios guiados por scroll ---------- */
   $$('.svc-scroll').forEach(wrap => {
     const items = $$('.svc-item', wrap), prism = $('.svc-prism', wrap), dotsNav = $('.svc-dots', wrap);
@@ -414,17 +442,32 @@
       return ok === true;
     };
     $$('input', form).forEach(i => i.addEventListener('blur', () => i.value && check(i)));
-    form.addEventListener('submit', e => {
+    // el botón de enviar solo se activa si aceptaron el aviso de privacidad
+    const priv = $('#priv'), submit = $('button[type=submit]', form), errBox = $('.form__error', form);
+    const sync = () => { submit.disabled = !priv.checked; if (priv.checked) priv.closest('.chk').classList.remove('err'); };
+    priv.addEventListener('change', sync); sync();
+    $('input[name=t]', form).value = Math.floor(Date.now() / 1000);
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const okFields = $$('input[name]', form).map(check).every(Boolean);
-      const priv = $('#priv'), chk = priv.closest('.chk');
-      chk.classList.toggle('err', !priv.checked);
+      errBox.hidden = true;
+      const okFields = $$('input[name]', form).filter(i => i.type !== 'hidden' && i.name !== 'sitio_web').map(check).every(Boolean);
+      priv.closest('.chk').classList.toggle('err', !priv.checked);
       if (!okFields || !priv.checked) return;
-      const d = Object.fromEntries(new FormData(form));
-      const bodyTxt = `Nombre: ${d.nombre}\nEmpresa: ${d.empresa || '-'}\nServicio: ${d.servicio}\nCorreo: ${d.correo}\nCelular: ${d.celular}`;
-      $('#mailto').href = `mailto:hola@borealmarketing.mx?subject=${encodeURIComponent('Solicitud desde el sitio · ' + d.servicio)}&body=${encodeURIComponent(bodyTxt)}`;
-      form.classList.add('sent');
+      const label = submit.innerHTML;
+      submit.disabled = true; form.classList.add('sending'); submit.innerHTML = 'Enviando…';
+      try {
+        const res = await fetch(form.getAttribute('action'), { method: 'POST', body: new FormData(form), headers: { 'X-Requested-With': 'fetch' } });
+        const data = await res.json().catch(() => ({ ok: false, message: 'Respuesta inesperada del servidor.' }));
+        if (!res.ok || !data.ok) throw new Error(data.message || 'No pudimos enviar tu solicitud.');
+        form.classList.add('sent');
+      } catch (err) {
+        errBox.textContent = (err && err.message && !/fetch|network/i.test(err.message)) ? err.message : 'No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a hola@borealmarketing.mx.';
+        errBox.hidden = false;
+      } finally {
+        form.classList.remove('sending'); submit.innerHTML = label; sync();
+      }
     });
-    $('[data-reset]', form)?.addEventListener('click', () => { form.reset(); form.classList.remove('sent'); });
+    $('[data-reset]', form)?.addEventListener('click', () => { form.reset(); form.classList.remove('sent'); sync(); $('input[name=t]', form).value = Math.floor(Date.now() / 1000); });
   }
 })();
