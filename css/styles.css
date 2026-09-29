@@ -1192,6 +1192,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 /* Home: cada bloque ("Resultados…" y "Tu proyecto…") con el mismo espacio blanco arriba y abajo */
 :root{--gap-res:clamp(50px,6.25vw,90px)}
 .results .quote-slider{margin-top:var(--gap-res)}
-.founder{padding-top:calc(var(--gap-res) + 40px)}
+.founder{padding-top:var(--gap-res)}
 .founder__stage{margin-top:var(--gap-res)}
 .founder__content{padding-bottom:clamp(16px,1.4vw,20px)}
