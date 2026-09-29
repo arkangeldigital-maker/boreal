@@ -448,6 +448,10 @@
     priv.addEventListener('change', sync); sync();
     $('input[name=t]', form).value = Math.floor(Date.now() / 1000);
 
+    // marco oculto donde FormSubmit recibe el envío (se crea desde el inicio para no confundir su carga vacía con la respuesta)
+    if (form.dataset.fallback && !document.getElementById('fs-frame')) {
+      document.body.append(Object.assign(document.createElement('iframe'), { id: 'fs-frame', name: 'fs-frame', title: 'envío del formulario', hidden: true }));
+    }
     // Envío: 1) contacto.php si el hosting tiene PHP; 2) si no (GitHub Pages u otro hosting estático), FormSubmit.co
     const enviar = async fd => {
       const esEstatico = /github\.io$/i.test(location.hostname);
@@ -461,18 +465,24 @@
       }
       const destino = form.dataset.fallback;
       if (!destino) throw new Error('No pudimos enviar tu solicitud.');
+      // Envío clásico a FormSubmit dentro de un marco oculto (no depende de CORS ni recarga la página)
       const datos = Object.fromEntries(fd);
-      const res = await fetch(destino, {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: 'Nueva solicitud desde el sitio de Boreal · ' + (datos.servicio || ''),
+      await new Promise(resolve => {
+        const frame = document.getElementById('fs-frame');
+        const f = Object.assign(document.createElement('form'), { method: 'POST', action: destino, target: 'fs-frame', hidden: true });
+        const campos = {
+          _subject: 'Nueva solicitud desde el sitio de Boreal - ' + (datos.servicio || ''),
           _template: 'table', _captcha: 'false', _honey: datos.sitio_web || '',
-          Nombre: datos.nombre, Empresa: datos.empresa || '—', 'Servicio de interés': datos.servicio,
-          Correo: datos.correo, Celular: datos.celular, 'Aviso de privacidad': 'Aceptado', _replyto: datos.correo,
-        }),
+          Nombre: datos.nombre, Empresa: datos.empresa || '-', Servicio: datos.servicio,
+          email: datos.correo, Celular: datos.celular, Aviso_de_privacidad: 'Aceptado',
+        };
+        Object.entries(campos).forEach(([k, v]) => f.append(Object.assign(document.createElement('input'), { type: 'hidden', name: k, value: v ?? '' })));
+        document.body.append(f);
+        const listo = () => { f.remove(); resolve(); };
+        frame.addEventListener('load', listo, { once: true });
+        setTimeout(listo, 12000);
+        f.submit();
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'No pudimos enviar tu solicitud.');
     };
 
     form.addEventListener('submit', async e => {

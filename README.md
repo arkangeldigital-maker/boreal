@@ -27,6 +27,6 @@ Solo hay que subirlo al hosting junto con el sitio (el hosting debe tener PHP, c
 
 ### En GitHub Pages (sin PHP)
 
-GitHub Pages no ejecuta PHP, así que ahí el formulario se envía automáticamente por **FormSubmit.co** (`data-fallback` en `contacto.html`).
+GitHub Pages no ejecuta PHP, así que ahí el formulario se envía automáticamente por **FormSubmit.co** (`data-fallback` en `contacto.html`), con un envío clásico dentro de un marco oculto (no depende de CORS).
 La **primera vez** que alguien envíe el formulario, FormSubmit manda a angelcobos@outlook.com un correo de **activación**: hay que abrirlo y confirmar. A partir de ahí llegan todas las solicitudes.
 Tras activarlo, FormSubmit te da un alias aleatorio; puedes ponerlo en lugar del correo en `data-fallback` para no dejar la dirección visible en el código.
