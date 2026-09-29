@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contacto · Boreal Marketing Digital</title>
+<meta name="description" content="Cuéntanos de tu proyecto. Agenda una sesión estratégica con Karen Santiago y el equipo de Boreal. Veracruz, Xalapa y todo México.">
+<meta name="theme-color" content="#2a1f55">
+<link rel="icon" href="assets/fig/fullcolor.webp">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contacto" class="header-solid">
+
+<main>
+  <section class="contact mesh">
+    <!-- prismas 15% más grandes, con ciclo desenfoque/enfoque; aro redondo más grande detrás del formulario -->
+    <div class="fig contact__prism" style="left:38.4vw;top:16.2vw;width:clamp(127px,14.4vw,230px);--fd:9s;--fdl:-2s" data-speed=".2"><div data-mouse="40"><img class="float" style="--r:0deg" src="assets/fig/8.webp" alt=""></div></div>
+    <div class="fig contact__ring" data-speed=".1"><div data-mouse="-25"><img class="spin-slow" src="assets/fig/aro-redondo.webp" alt=""></div></div>
+    <div class="fig contact__prism" style="left:10%;bottom:4%;width:150px;--fd:7s;--fdl:0s" data-speed=".3"><div data-mouse="60"><img class="float" style="--r:30deg;--dur:8s" src="assets/fig/7.webp" alt=""></div></div>
+    <div class="fig contact__prism" style="left:24%;bottom:1%;width:150px;--fd:10s;--fdl:-5s" data-speed=".35"><div data-mouse="50"><img class="float" style="--r:0deg;--dur:10s" src="assets/fig/6.webp" alt=""></div></div>
+
+    <div class="container contact__grid">
+      <div>
+        <span class="pill reveal">Hablemos</span>
+        <h1 class="split">El crecimiento sostenible<br class="br-d"> comienza con claridad.</h1>
+        <p class="lead reveal" style="--d:.5s">Agenda una <b>sesión estratégica con Karen Santiago</b> y el equipo de Boreal para analizar el estado actual de tu marca, identificar oportunidades y definir los próximos pasos con dirección y estructura.</p>
+        <ul class="cinfo">
+          <li class="reveal" style="--d:.6s;--c:var(--teal-2)"><small>CORREO</small><a href="mailto:hola@borealmarketing.mx">hola@borealmarketing.mx</a></li>
+          <li class="reveal" style="--d:.7s;--c:var(--coral)"><small>TELÉFONO</small><a href="tel:+522291445559">+52 (229) 144 5559</a></li>
+          <li class="reveal" style="--d:.8s;--c:var(--purple-soft)"><small>UBICACIÓN</small><span>Veracruz &amp; Xalapa, México</span></li>
+        </ul>
+      </div>
+
+      <form class="form-wrap reveal reveal--right" id="contact-form" novalidate style="--d:.3s">
+        <div class="form">
+        <h2>Cuéntanos de tu proyecto</h2>
+        <div class="field"><label for="f-nombre">Nombre completo</label><input id="f-nombre" name="nombre" placeholder="Ej. Ana Martínez" autocomplete="name"><p class="msg"></p></div>
+        <div class="field"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa" placeholder="Nombre de tu marca o empresa" autocomplete="organization"></div>
+        <div class="field">
+          <label id="l-serv">Servicio de interés</label>
+          <div class="select">
+            <button type="button" class="select__btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-serv"><span>Consultoría de claridad estratégica</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <ul class="select__list" role="listbox">
+              <li role="option" data-k="norte" aria-selected="true">Consultoría de claridad estratégica</li>
+              <li role="option" data-k="lanzamiento" aria-selected="false">Lanzamiento integral de marca</li>
+              <li role="option" data-k="mentorias" aria-selected="false">Mentorías personalizadas</li>
+              <li role="option" data-k="web" aria-selected="false">Diseño web profesional</li>
+              <li role="option" data-k="campanas" aria-selected="false">Gestión de campañas</li>
+              <li role="option" data-k="redes" aria-selected="false">Dirección estratégica en RRSS</li>
+            </ul>
+          </div>
+          <input type="hidden" name="servicio" value="Consultoría de claridad estratégica">
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-correo">Correo electrónico</label><input id="f-correo" name="correo" type="email" placeholder="tu@correo.com" autocomplete="email"><p class="msg"></p></div>
+          <div class="field"><label for="f-cel">Número de celular</label><input id="f-cel" name="celular" type="tel" placeholder="+52 ___ ___ ____" autocomplete="tel"><p class="msg"></p></div>
+        </div>
+        <div class="done" aria-live="polite">
+          <div>
+            <img src="assets/fig/fullcolor.webp" alt="">
+            <h3>¡Gracias! Ya casi está.</h3>
+            <p>Abre tu correo para enviarnos tu solicitud. Te responderemos en menos de 24 horas.</p>
+            <a id="mailto" class="btn btn--gold" href="mailto:hola@borealmarketing.mx">Enviar por correo <span class="arr">→</span></a>
+            <p style="margin-top:14px"><button type="button" class="link" data-reset style="color:#fff">Enviar otra solicitud</button></p>
+          </div>
+        </div>
+        </div>
+        <label class="chk"><input type="checkbox" id="priv"> He leído y aceptado la política de privacidad</label>
+        <div class="form__foot">
+          <button type="submit" class="btn btn--gold">Enviar solicitud <span class="arr">→</span></button>
+          <small>Respuesta garantizada en menos de 24 horas.</small>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
