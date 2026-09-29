@@ -24,3 +24,9 @@ Solo hay que subirlo al hosting junto con el sitio (el hosting debe tener PHP, c
 - El botón "Enviar solicitud" solo se activa al marcar "He leído y aceptado la política de privacidad".
 - Incluye validación en servidor y protección básica contra spam (campo trampa y tiempo mínimo de llenado).
 - Si los correos llegan a "No deseado" en Outlook, configura en el hosting un buzón `no-reply@tudominio` (o SPF/DKIM del dominio).
+
+### En GitHub Pages (sin PHP)
+
+GitHub Pages no ejecuta PHP, así que ahí el formulario se envía automáticamente por **FormSubmit.co** (`data-fallback` en `contacto.html`).
+La **primera vez** que alguien envíe el formulario, FormSubmit manda a angelcobos@outlook.com un correo de **activación**: hay que abrirlo y confirmar. A partir de ahí llegan todas las solicitudes.
+Tras activarlo, FormSubmit te da un alias aleatorio; puedes ponerlo en lugar del correo en `data-fallback` para no dejar la dirección visible en el código.
