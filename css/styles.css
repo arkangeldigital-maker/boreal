@@ -1218,3 +1218,9 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .what__img img{object-position:88% 30%}
   .what__grid>div:first-child{max-width:50%;min-height:calc(min(78vw,460px) - 70px)}
 }
+/* formulario: botón desactivado hasta aceptar el aviso, estado de envío y error */
+.form-wrap .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.form-wrap .btn[disabled]::before{display:none}
+.form-wrap.sending .btn{opacity:.7}
+.form__error{margin:0;max-width:34em;text-align:right;font-size:13px;color:#ff8b9b}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}

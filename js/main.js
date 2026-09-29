@@ -442,17 +442,32 @@
       return ok === true;
     };
     $$('input', form).forEach(i => i.addEventListener('blur', () => i.value && check(i)));
-    form.addEventListener('submit', e => {
+    // el botón de enviar solo se activa si aceptaron el aviso de privacidad
+    const priv = $('#priv'), submit = $('button[type=submit]', form), errBox = $('.form__error', form);
+    const sync = () => { submit.disabled = !priv.checked; if (priv.checked) priv.closest('.chk').classList.remove('err'); };
+    priv.addEventListener('change', sync); sync();
+    $('input[name=t]', form).value = Math.floor(Date.now() / 1000);
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const okFields = $$('input[name]', form).map(check).every(Boolean);
-      const priv = $('#priv'), chk = priv.closest('.chk');
-      chk.classList.toggle('err', !priv.checked);
+      errBox.hidden = true;
+      const okFields = $$('input[name]', form).filter(i => i.type !== 'hidden' && i.name !== 'sitio_web').map(check).every(Boolean);
+      priv.closest('.chk').classList.toggle('err', !priv.checked);
       if (!okFields || !priv.checked) return;
-      const d = Object.fromEntries(new FormData(form));
-      const bodyTxt = `Nombre: ${d.nombre}\nEmpresa: ${d.empresa || '-'}\nServicio: ${d.servicio}\nCorreo: ${d.correo}\nCelular: ${d.celular}`;
-      $('#mailto').href = `mailto:hola@borealmarketing.mx?subject=${encodeURIComponent('Solicitud desde el sitio · ' + d.servicio)}&body=${encodeURIComponent(bodyTxt)}`;
-      form.classList.add('sent');
+      const label = submit.innerHTML;
+      submit.disabled = true; form.classList.add('sending'); submit.innerHTML = 'Enviando…';
+      try {
+        const res = await fetch(form.getAttribute('action'), { method: 'POST', body: new FormData(form), headers: { 'X-Requested-With': 'fetch' } });
+        const data = await res.json().catch(() => ({ ok: false, message: 'Respuesta inesperada del servidor.' }));
+        if (!res.ok || !data.ok) throw new Error(data.message || 'No pudimos enviar tu solicitud.');
+        form.classList.add('sent');
+      } catch (err) {
+        errBox.textContent = (err && err.message && !/fetch|network/i.test(err.message)) ? err.message : 'No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a hola@borealmarketing.mx.';
+        errBox.hidden = false;
+      } finally {
+        form.classList.remove('sending'); submit.innerHTML = label; sync();
+      }
     });
-    $('[data-reset]', form)?.addEventListener('click', () => { form.reset(); form.classList.remove('sent'); });
+    $('[data-reset]', form)?.addEventListener('click', () => { form.reset(); form.classList.remove('sent'); sync(); $('input[name=t]', form).value = Math.floor(Date.now() / 1000); });
   }
 })();
