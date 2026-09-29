@@ -448,6 +448,33 @@
     priv.addEventListener('change', sync); sync();
     $('input[name=t]', form).value = Math.floor(Date.now() / 1000);
 
+    // Envío: 1) contacto.php si el hosting tiene PHP; 2) si no (GitHub Pages u otro hosting estático), FormSubmit.co
+    const enviar = async fd => {
+      const esEstatico = /github\.io$/i.test(location.hostname);
+      if (!esEstatico) {
+        try {
+          const res = await fetch(form.getAttribute('action'), { method: 'POST', body: fd, headers: { 'X-Requested-With': 'fetch' } });
+          const data = await res.json().catch(() => null);
+          if (data) { if (!res.ok || !data.ok) throw Object.assign(new Error(data.message || 'No pudimos enviar tu solicitud.'), { final: true }); return; }
+          // sin JSON = el servidor no ejecutó PHP → se intenta con el respaldo
+        } catch (err) { if (err.final) throw err; }
+      }
+      const destino = form.dataset.fallback;
+      if (!destino) throw new Error('No pudimos enviar tu solicitud.');
+      const datos = Object.fromEntries(fd);
+      const res = await fetch(destino, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Nueva solicitud desde el sitio de Boreal · ' + (datos.servicio || ''),
+          _template: 'table', _captcha: 'false', _honey: datos.sitio_web || '',
+          Nombre: datos.nombre, Empresa: datos.empresa || '—', 'Servicio de interés': datos.servicio,
+          Correo: datos.correo, Celular: datos.celular, 'Aviso de privacidad': 'Aceptado', _replyto: datos.correo,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'No pudimos enviar tu solicitud.');
+    };
+
     form.addEventListener('submit', async e => {
       e.preventDefault();
       errBox.hidden = true;
@@ -457,9 +484,7 @@
       const label = submit.innerHTML;
       submit.disabled = true; form.classList.add('sending'); submit.innerHTML = 'Enviando…';
       try {
-        const res = await fetch(form.getAttribute('action'), { method: 'POST', body: new FormData(form), headers: { 'X-Requested-With': 'fetch' } });
-        const data = await res.json().catch(() => ({ ok: false, message: 'Respuesta inesperada del servidor.' }));
-        if (!res.ok || !data.ok) throw new Error(data.message || 'No pudimos enviar tu solicitud.');
+        await enviar(new FormData(form));
         form.classList.add('sent');
       } catch (err) {
         errBox.textContent = (err && err.message && !/fetch|network/i.test(err.message)) ? err.message : 'No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a hola@borealmarketing.mx.';
