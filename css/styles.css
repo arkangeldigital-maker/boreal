@@ -1224,3 +1224,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .form-wrap.sending .btn{opacity:.7}
 .form__error{margin:0;max-width:34em;text-align:right;font-size:13px;color:#ff8b9b}
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.brandtonic-link{display:inline-flex;color:inherit;transition:opacity .3s,transform .4s var(--ease)}
+.brandtonic-link:hover{opacity:.75;transform:translateY(-1px)}

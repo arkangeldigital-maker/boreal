@@ -86,7 +86,7 @@
       <path d="M568 2V98"/>
       <path d="M668 20C654 -2 598 -4 598 50C598 104 654 102 668 80"/>
     </svg>`;
-  const sinergia = `<p class="sinergia">EN SINERGIA CON ${brandtonic}</p>`;
+  const sinergia = `<p class="sinergia">EN SINERGIA CON <a class="brandtonic-link" href="https://www.instagram.com/brandtonicestudio/" target="_blank" rel="noopener" aria-label="Brandtonic en Instagram">${brandtonic}</a></p>`;
   const isContact = page === 'contacto';
 
   body.insertAdjacentHTML('beforeend', `
