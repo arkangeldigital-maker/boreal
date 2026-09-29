@@ -1177,3 +1177,8 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .pj-cta{flex-direction:column;align-items:flex-start}
   .pj-banner .pj-logo{width:min(var(--lw),62%)}
 }
+/* Home: mismo espacio blanco arriba de "Resultados" y debajo del testimonio (hasta "Tu proyecto…") */
+:root{--gap-res:clamp(60px,8.3vw,120px)}
+.results{padding-top:var(--gap-res)}
+.founder{padding-top:calc(var(--gap-res) + 5px)}
+.chk a{text-decoration:underline;text-underline-offset:3px}
