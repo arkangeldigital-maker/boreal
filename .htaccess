@@ -1,0 +1,32 @@
+# =========================================================
+# Boreal · URLs amigables (Apache / HostGator)
+#   /servicios        → muestra servicios.html
+#   /servicios.html   → redirige (301) a /servicios
+#   /index.html       → redirige (301) a /
+# Funciona tanto en la raíz del dominio como en una subcarpeta.
+# =========================================================
+
+Options -MultiViews
+DirectoryIndex index.html
+RewriteEngine On
+
+# 1) /index.html (o /carpeta/index.html) → / (o /carpeta/)
+RewriteCond %{THE_REQUEST} \s/+(.*?/)?index\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# 2) /pagina.html → /pagina  (conserva ?parámetros y #anclas)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# 3) /pagina/ con diagonal final → /pagina
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# 4) /pagina → sirve pagina.html sin mostrar la extensión
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Página de error: cualquier ruta inexistente vuelve al inicio
+ErrorDocument 404 /index.html

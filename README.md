@@ -15,6 +15,17 @@ npx http-server . -p 5178
 
 Pendiente antes de publicar: completar o quitar los 4 testimonios marcados como `[Testimonio del cliente]` en `index.html` y `sesion-norte.html`.
 
+## URLs amigables
+
+Los enlaces internos ya no llevan `.html` (`/servicios`, `/proyectos`, `/contacto`, `/sesion-norte`, `/borealizate`; Home es `/`).
+El archivo **`.htaccess`** (Apache / HostGator) hace que funcionen:
+
+- `/servicios` muestra `servicios.html`.
+- `/servicios.html` redirige (301) a `/servicios`, así no se rompen enlaces viejos.
+- `/index.html` redirige a `/`.
+
+Al subir por FTP o el Administrador de archivos de cPanel, asegúrate de subir también `.htaccess` (es un archivo oculto: activa "Mostrar archivos ocultos").
+
 ## Formulario de contacto
 
 `contacto.php` recibe el formulario (AJAX desde `js/main.js`) y envía un correo a **angelcobos@outlook.com** usando `mail()` de PHP.
