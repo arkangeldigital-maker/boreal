@@ -1195,3 +1195,10 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .founder{padding-top:var(--gap-res)}
 .founder__stage{margin-top:var(--gap-res)}
 .founder__content{padding-bottom:clamp(16px,1.4vw,20px)}
+/* Sesión Norte: figuras del hero ancladas al centro vertical (alineadas con el centro del texto), en cualquier alto de pantalla */
+@media (min-width:821px){
+  .shero{background:radial-gradient(circle at 79.8vw calc(50% + 21px),rgba(150,100,30,.28) 0,rgba(150,100,30,.12) 17vw,rgba(150,100,30,0) 31vw),#1c1235}
+  .sn-ring{top:calc(50% + 21px - 16.3vw)}
+  .sn-teal{top:calc(50% + 21px + .2vw)}
+  .sn-gold{top:calc(50% + 21px + 7.2vw)}
+}
