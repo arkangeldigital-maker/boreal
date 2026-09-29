@@ -14,7 +14,7 @@
     ['index.html', 'Home', 'home'],
     ['servicios.html', 'Servicios', 'servicios'],
     ['borealizate.html', 'Borealízate', 'borealizate'],
-    ['index.html#resultados', 'Proyectos', 'proyectos'],
+    ['proyectos.html', 'Proyectos', 'proyectos'],
     ['contacto.html', 'Contacto', 'contacto'],
   ];
   const navHTML = links.map(([h, t, k]) => `<a href="${h}"${k === page ? ' class="active" aria-current="page"' : ''}>${t}</a>`).join('');

@@ -1,6 +1,6 @@
 # Boreal · Marketing Digital
 
-Sitio web estático de Boreal (Home, Servicios, Borealízate, Sesión Norte y Contacto).
+Sitio web estático de Boreal (Home, Servicios, Borealízate, Proyectos, Sesión Norte y Contacto).
 
 - `index.html`, `servicios.html`, `borealizate.html`, `sesion-norte.html`, `contacto.html`
 - `css/styles.css` — estilos
