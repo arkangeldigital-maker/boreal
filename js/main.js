@@ -98,7 +98,7 @@
           <div class="footer__contact reveal" style="--d:.12s">
             ${isContact ? sinergia.replace('EN SINERGIA CON', '<i>En sinergia con</i>') : ''}
             <a href="mailto:hola@borealmarketing.mx"><span class="ic">${ico.mail}</span>hola@borealmarketing.mx</a>
-            <a href="https://wa.me/522291445559" target="_blank" rel="noopener"><span class="ic">${ico.wa}</span>(229) 144 5559</a>
+            <a href="https://wa.me/522291445559" target="_blank" rel="noopener"><span class="ic">${ico.wa}</span>(229) 144 55 59</a>
             ${socials}
           </div>
           <div class="reveal" style="--d:.2s"><p><b>Boreal Marketing Digital</b></p>${isContact ? '' : sinergia}<p><i style="font-size:13px">Todos los derechos reservados</i></p></div>
