@@ -1362,3 +1362,9 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (max-width:820px){.pj-hero2--round{border-radius:22px}}
 /* ETP (celular): el camión parte del borde izquierdo de la pantalla y ocupa el 95% del ancho */
 @media (max-width:820px){.pj-hero2--bleed{margin-inline:0;width:95%}}
+/* Proyectos (escritorio): las imágenes del PDF tienen su contenido entre el 6% y el 93% del ancho;
+   se escalan para que ese rango coincida con el contenedor y los textos queden alineados con ellas */
+@media (min-width:821px){
+  .pj-case{overflow-x:clip}
+  .pj-hero2,.pj-shot:not(.pj-shot--full){--cw:min(100% - 2 * var(--gutter), var(--max));width:calc(var(--cw) / .87);max-width:none;margin-left:calc((100% - var(--cw)) / 2 - var(--cw) / .87 * .06);margin-right:0}
+}
