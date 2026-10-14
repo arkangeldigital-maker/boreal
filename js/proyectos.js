@@ -45,7 +45,7 @@
       industry: 'Logística · Cadena de suministro<br>Comercio exterior', hero: ['dagsa-hero.webp', 637], mcrop: [6.25, 61.18, 3.77, 98.12], gallery: ['dagsa-galeria.webp', 793], card: { box: [61.111, 19.546, 32.083, 62.827], client: 'Dagsa Logistics', industry: 'Logística · Cadena de suministro<br>Comercio exterior', services: 'Estrategia digital · Maquetación web<br>Diseño y desarrollo web · Contenido web<br>SEO · Papelería corporativa' } },
     { slug: 'aeternum', name: 'Aeternum', fullBleed: true, w: 270, tint: '#a3316a', at: '100% 100%', col: 1,
       services: ['Estrategia digital', 'Maquetación web', 'Diseño y desarrollo web', 'Contenido web', 'SEO y SEM', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Estrategia de campañas en Meta Ads'],
-      industry: 'Tecnología Financiera · Blockchain · Criptomonedas', hero: ['aeternum-hero.webp', 943], gallery: ['aeternum-galeria.webp', 1224], card: { box: [50.139, 18.986, 42.917, 42.453], client: 'Aeternum', industry: 'Tecnología Financiera · Blockchain · Criptomonedas', services: 'Estrategia digital · Maquetación web · Diseño y<br>desarrollo web · Contenido web · SEO y SEM<br>Dirección estratégica de redes sociales (Facebook<br>e Instagram) · Estrategia de campañas en Meta Ads' } },
+      industry: 'Tecnología Financiera · Blockchain · Criptomonedas', hero: ['aeternum-hero.webp', 943], mcrop: [0.25, 70.25, 2.86, 98.62], mcard: 'sep', gallery: ['aeternum-galeria.webp', 1224], card: { box: [50.139, 18.986, 42.917, 42.453], client: 'Aeternum', industry: 'Tecnología Financiera · Blockchain · Criptomonedas', services: 'Estrategia digital · Maquetación web · Diseño y<br>desarrollo web · Contenido web · SEO y SEM<br>Dirección estratégica de redes sociales (Facebook<br>e Instagram) · Estrategia de campañas en Meta Ads' } },
     { slug: 'soli-deo-gloria', name: 'Soli Deo Gloria', tall: true, w: 360, tint: '#6c4bb3', at: '100% 100%', col: 2,
       services: ['Estrategia digital', 'Diseño y desarrollo web', 'Contenido web', 'Fotografía y video', 'SEO y SEM', 'Estrategia publicitaria en Google Ads', 'Diseño de artes publicitarios'],
       industry: 'Construcción · Ventanas y Puertas de PVC', hero: ['soli-deo-gloria-hero.webp', 1954], card: { box: [51.389, 9.613, 41.597, 20.364], client: 'SOLI·DEO GLORIA', industry: 'Construcción · Ventanas y Puertas de PVC', services: 'Estrategia digital · Diseño y desarrollo<br>web · Contenido web · Fotografía y video<br>SEO y SEM · Estrategia publicitaria en<br>Google Ads · Diseño de artes publicitarios' } },
@@ -135,7 +135,7 @@
       body = `
       <section class="pj-case pj-case--shot${p.flush ? ' pj-case--flush' : ''}" style="--case-bg:${p.bg || '#fff'}">
         <div class="pj-anim">${heroFig(p)}</div>
-        <div class="container">${info(p)}</div>
+        <div class="container${p.mcard === 'sep' ? ' pj-info-sep' : ''}">${info(p)}</div>
         ${p.gallery ? `<div class="pj-anim">${shot(p, p.gallery, p.fullBleed ? 'pj-shot--full' : '')}</div>` : ''}
         ${p.flush ? '' : toTop}
       </section>`;

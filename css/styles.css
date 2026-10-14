@@ -1356,3 +1356,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .pj-step p{max-width:none}
   .pj-step img{position:absolute;right:calc(var(--gutter) * -1 - clamp(32px,10vw,52px));top:50%;margin:0;width:clamp(90px,28vw,145px);translate:0 -50%}
 }
+/* Aeternum (celular): la ficha va separada de la laptop y con todas las esquinas redondeadas */
+@media (max-width:820px){.pj-info-sep .pj-info--m{margin-top:24px;border-radius:22px}}
