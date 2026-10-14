@@ -1231,3 +1231,15 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   -webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
 .quote .quote__logo--mask{color:#fff}
 .quote-slider--light .quote__logo--mask{color:#000}
+/* Home: "Servicios" sin el texto de la derecha; "tu presencia digital con" en negritas */
+.svc-intro__row p b{font-weight:800}
+/* Home: el ticket de Sesión Norte arranca a la altura de la línea "Sesión Norte · …" para que el botón se vea antes */
+@media (min-width:821px){.norte__card{margin-top:0}}
+/* Home: menos espacio blanco arriba y abajo de "Resultados que se sienten y se miden" */
+.results{padding-top:clamp(28px,3.5vw,50px)}
+.results .quote-slider{margin-top:clamp(30px,3.75vw,54px)}
+/* Home: prisma amarillo de Servicios más chico, detrás del texto; su alto lo fija main.js debajo de "Lanzamiento integral" */
+@media (min-width:821px){
+  .svc-prism{width:clamp(200px,24vw,360px);bottom:auto;z-index:0}
+  .svc-item{z-index:1}
+}

@@ -306,12 +306,29 @@
     const ring = document.querySelector('.svc-intro__ring'), wrap = document.querySelector('.svc-scroll');
     if (!ring || !wrap || reduce) return;
     const mq = matchMedia('(max-width: 820px)');
-    let s0 = 0, max = 0;
+    // Mientras acompaña al scroll va en position:fixed (lo mueve el navegador, sin brincos);
+    // un hueco del mismo tamaño guarda su lugar en la fila para que el texto no se recorra
+    const ph = document.createElement('div');
+    ph.className = 'svc-intro__ph'; ph.hidden = true;
+    ring.after(ph);
+    let s0 = 0, max = 0, left = 0, w = 0, h = 0, mode = '';
+    const set = m => {
+      if (m === mode) return;
+      mode = m;
+      const fixed = m === 'fixed';
+      ph.hidden = !fixed;
+      Object.assign(ring.style, fixed
+        ? { position: 'fixed', top: `${(innerHeight - h) / 2}px`, left: `${left}px`, width: `${w}px`, margin: '0', translate: '' }
+        : { position: '', top: '', left: '', width: '', margin: '', translate: m === 'after' ? `0 ${max.toFixed(1)}px` : '' });
+    };
     const measure = () => {
-      ring.style.translate = '';
+      mode = ''; set('before');
       if (mq.matches) return;
       const r = ring.getBoundingClientRect();
-      const center = r.top + scrollY + r.height / 2;                 // centro del aro en el documento
+      ({ width: w, height: h } = r);
+      left = r.left - (parseFloat(getComputedStyle(ring).translate.split(' ')[0]) || 0);
+      ph.style.cssText = `width:${w}px;height:${h}px`;
+      const center = r.top + scrollY + h / 2;                        // centro del aro en el documento
       const wrapTop = wrap.getBoundingClientRect().top + scrollY;
       const run = wrap.offsetHeight - innerHeight;                   // tramo en que los servicios están fijos
       s0 = center - innerHeight / 2;                                 // el aro llega a media pantalla
@@ -319,8 +336,8 @@
     };
     const update = () => {
       if (mq.matches) return;
-      const t = Math.min(max, Math.max(0, scrollY - s0));
-      ring.style.translate = t ? `0 ${t.toFixed(1)}px` : '';
+      const t = scrollY - s0;
+      set(t <= 0 ? 'before' : t >= max ? 'after' : 'fixed');
     };
     addEventListener('scroll', update, { passive: true });
     addEventListener('resize', () => { measure(); update(); });
@@ -355,8 +372,21 @@
       const top = wrap.getBoundingClientRect().top + scrollY;
       scrollTo({ top: top + run * ((k + .5) / n), behavior: reduce ? 'auto' : 'smooth' });
     }));
+    // El prisma se acomoda justo debajo de "Lanzamiento integral" para no taparlo en ninguna resolución
+    const item2 = items[1];
+    const placePrism = () => {
+      if (!prism || !item2) return;
+      if (matchMedia('(max-width: 820px)').matches) { prism.style.top = ''; return; }
+      const img = $('img', prism);
+      const h = img.offsetHeight || prism.offsetWidth;            // la imagen es cuadrada
+      // la parte visible del prisma empieza al ~27% del alto de la imagen; 50px de aire cubren su flotación
+      prism.style.top = `${item2.offsetTop + item2.offsetHeight + 50 - h * .27}px`;
+    };
     addEventListener('scroll', update, { passive: true });
-    addEventListener('resize', update);
+    addEventListener('resize', () => { update(); placePrism(); });
+    addEventListener('load', placePrism);
+    document.fonts?.ready.then(placePrism);
+    placePrism();
     update();
   });
 
