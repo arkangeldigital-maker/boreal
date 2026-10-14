@@ -1327,3 +1327,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .curtain__logo .logo-svg path,.curtain__logo .logo-svg rect{stroke:var(--night);stroke-width:16px}
 /* Footer: la "l" del logo alineada a la derecha con el texto de abajo; el MR sobresale a un lado */
 @media (min-width:821px){.footer__cols .footer__brand .logo-svg{margin-right:calc(37px * -.453)}}
+/* Sesión Norte: los 4 números de "Lo que trabajamos en la sesión" con el mismo color que el 01 y el 02 */
+.incl .icard:nth-child(n) .icard__n{background:rgba(255,255,255,.1);color:var(--gold)}
