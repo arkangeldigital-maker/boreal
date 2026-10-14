@@ -1374,3 +1374,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .pj-case--mfirst>.container{order:-1}
   .pj-case--mfirst .pj-info-sep .pj-info--m{margin:0 auto 24px}
 }
+/* Proyectos (celular): la ficha pegada a la foto se monta 4 px sobre ella para tapar la orilla clara del recorte */
+@media (max-width:820px){.pj-anim:has(.pj-hero2--crop)+.container:not(.pj-info-sep) .pj-info--m{position:relative;z-index:2;margin-top:-4px}}
