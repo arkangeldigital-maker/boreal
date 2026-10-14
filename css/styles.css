@@ -1525,3 +1525,18 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   /* Sesión Norte: el prisma flota arriba, lejos del texto */
   .sn-teal{right:auto;left:42vw;top:22px;width:22vw}
 }
+/* Borealízate (celular): hero más compacto para que el botón se vea al entrar; logo con la "l" alineada al texto y el MR afuera */
+@media (max-width:820px){
+  .bhero{padding-top:84px}
+  .bhero__grid{row-gap:16px}
+  .bhero__img{grid-template-columns:28vw 1fr;gap:5vw}
+  .bhero__img img{width:28vw;height:28vw}
+  .bhero__img blockquote{font-size:clamp(14px,3.9vw,16px)}
+  .bhero h1{font-size:clamp(23px,6.4vw,27px);margin-bottom:0}
+  .bhero .lead{margin-top:10px;font-size:15px}
+  .bhero__karen{margin-top:16px}
+  .bhero h3{margin-bottom:6px;font-size:20px}
+  .bhero__karen p{font-size:15px}
+  .bhero .btn{margin-top:18px}
+  .is__logo .logo-svg{margin-right:calc(50px * -.453)}
+}
