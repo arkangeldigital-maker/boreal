@@ -1436,3 +1436,17 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   body[data-page="home"] .svc-intro__ring,body[data-page="home"] .svc-intro__ph{justify-self:end;margin-top:-10px}
 }
 @media (max-width:820px){body[data-page="home"] .svc-intro__row{margin-top:16px}}
+/* Home (celular): al arrancar, aro centrado arriba de la frase centrada; al bajar el aro se va a la derecha
+   y enmarca los dots del slider, que van en columna a la derecha */
+@media (max-width:820px){
+  body[data-page="home"] .svc-intro__row{grid-template-columns:1fr;margin-top:10px}
+  body[data-page="home"] .svc-intro__row p,body[data-page="home"] .svc-intro__row p:first-child{text-align:center;white-space:normal}
+  body[data-page="home"] .svc-intro__ring,body[data-page="home"] .svc-intro__ph{order:-1;justify-self:center;margin:0 auto}
+  body[data-page="home"] .svc-intro__ring{width:52vw}
+  body[data-page="home"] .svc-intro__ring.is-fixed{transition:left .7s var(--ease)}
+  body[data-page="home"] .svc-dots{left:auto;right:calc(var(--gutter) - 4px);top:50%;bottom:auto;transform:translateY(-50%);flex-direction:column}
+  body[data-page="home"] .svc-dots button,body[data-page="home"] .svc-dots button.active{width:8px}
+  body[data-page="home"] .svc-dots button.active{height:34px}
+  body[data-page="home"] .svc-dots button{transition:height .6s var(--ease),background .4s}
+  body[data-page="home"] .svc-item{padding-right:44px}
+}

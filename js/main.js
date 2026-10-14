@@ -305,15 +305,18 @@
     const ph = document.createElement('div');
     ph.className = 'svc-intro__ph'; ph.hidden = true;
     ring.after(ph);
-    let s0 = 0, max = 0, left = 0, w = 0, h = 0, mode = '';
+    let s0 = 0, max = 0, left = 0, w = 0, h = 0, dx = 0, mode = '';
     const set = m => {
       if (m === mode) return;
       mode = m;
       const fixed = m === 'fixed';
       ph.hidden = !fixed;
+      ring.classList.toggle('is-fixed', fixed);
       Object.assign(ring.style, fixed
         ? { position: 'fixed', top: `${(innerHeight - h) / 2}px`, left: `${left}px`, width: `${w}px`, margin: '0', translate: '' }
-        : { position: '', top: '', left: '', width: '', margin: '', translate: m === 'after' ? `0 ${max.toFixed(1)}px` : '' });
+        : { position: '', top: '', left: '', width: '', margin: '', translate: m === 'after' ? `${dx.toFixed(1)}px ${max.toFixed(1)}px` : '' });
+      // celular: entra centrado y, ya fijo, se desliza a la derecha para enmarcar los dots
+      if (fixed && dx) requestAnimationFrame(() => { if (mode === 'fixed') ring.style.left = `${left + dx}px`; });
     };
     const measure = () => {
       mode = ''; set('before');
@@ -328,8 +331,11 @@
       s0 = center - innerHeight / 2;                                 // el aro llega a media pantalla
       max = Math.max(0, wrapTop + run - s0);                         // se suelta cuando termina el bloque fijo
       // en celular sigue bajando hasta toparse con "De la estrategia a la acción"
-      const caps = document.querySelector('.caps');
-      if (caps && matchMedia('(max-width: 820px)').matches) max = Math.max(0, caps.getBoundingClientRect().top + scrollY - (innerHeight + h) / 2 - 16 - s0);
+      const caps = document.querySelector('.caps'), mobile = matchMedia('(max-width: 820px)').matches;
+      if (caps && mobile) max = Math.max(0, caps.getBoundingClientRect().top + scrollY - (innerHeight + h) / 2 - 16 - s0);
+      const dots = document.querySelector('.svc-dots');
+      dx = 0;
+      if (mobile && dots) { const d = dots.getBoundingClientRect(); dx = d.left + d.width / 2 - w / 2 - left; }
     };
     const update = () => {
       const t = scrollY - s0;
