@@ -92,7 +92,6 @@
   body.insertAdjacentHTML('beforeend', `
     <footer class="footer">
       <div class="container">
-        <div class="footer__brand reveal">${logo()}<p class="footer__tag">Estrategia. Dirección. Crecimiento.</p></div>
         <div class="footer__cols">
           <div class="reveal" style="--d:.05s"><p>Atención presencial en<br><b>Veracruz</b> y <b>Xalapa</b></p><p>Atención remota en <b>todo México</b></p></div>
           <div class="footer__contact reveal" style="--d:.12s">
@@ -101,7 +100,7 @@
             <a href="https://wa.me/522291445559" target="_blank" rel="noopener"><span class="ic">${ico.wa}</span>(229) 144 55 59</a>
             ${socials}
           </div>
-          <div class="reveal" style="--d:.2s"><p><b>Boreal Marketing Digital</b></p>${isContact ? '' : sinergia}<p><i style="font-size:13px">Todos los derechos reservados</i></p></div>
+          <div class="footer__brand reveal" style="--d:.2s">${logo()}${isContact ? '' : sinergia}</div>
         </div>
         <nav class="footer__nav" aria-label="Pie">${links.map(([h, t]) => `<a href="${h}">${t}</a>`).join('')}</nav>
         <p class="footer__legal"><a href="assets/legal/aviso-de-privacidad.pdf" target="_blank" rel="noopener">Aviso de privacidad</a> <a href="assets/legal/politica-de-cookies.pdf" target="_blank" rel="noopener">Política de cookies</a> · © ${new Date().getFullYear()}</p>
