@@ -300,7 +300,6 @@
   (() => {
     const ring = document.querySelector('.svc-intro__ring'), wrap = document.querySelector('.svc-scroll');
     if (!ring || !wrap || reduce) return;
-    const mq = matchMedia('(max-width: 820px)');
     // Mientras acompaña al scroll va en position:fixed (lo mueve el navegador, sin brincos);
     // un hueco del mismo tamaño guarda su lugar en la fila para que el texto no se recorra
     const ph = document.createElement('div');
@@ -318,19 +317,21 @@
     };
     const measure = () => {
       mode = ''; set('before');
-      if (mq.matches) return;
+      // medidas sin la escala de la animación de entrada (reveal--scale)
       const r = ring.getBoundingClientRect();
-      ({ width: w, height: h } = r);
-      left = r.left - (parseFloat(getComputedStyle(ring).translate.split(' ')[0]) || 0);
+      w = ring.offsetWidth; h = ring.offsetHeight;
+      left = r.left + (r.width - w) / 2 - (parseFloat(getComputedStyle(ring).translate.split(' ')[0]) || 0);
       ph.style.cssText = `width:${w}px;height:${h}px`;
-      const center = r.top + scrollY + h / 2;                        // centro del aro en el documento
+      const center = r.top + scrollY + r.height / 2;                 // centro del aro en el documento
       const wrapTop = wrap.getBoundingClientRect().top + scrollY;
       const run = wrap.offsetHeight - innerHeight;                   // tramo en que los servicios están fijos
       s0 = center - innerHeight / 2;                                 // el aro llega a media pantalla
       max = Math.max(0, wrapTop + run - s0);                         // se suelta cuando termina el bloque fijo
+      // en celular sigue bajando hasta toparse con "De la estrategia a la acción"
+      const caps = document.querySelector('.caps');
+      if (caps && matchMedia('(max-width: 820px)').matches) max = Math.max(0, caps.getBoundingClientRect().top + scrollY - (innerHeight + h) / 2 - 16 - s0);
     };
     const update = () => {
-      if (mq.matches) return;
       const t = scrollY - s0;
       set(t <= 0 ? 'before' : t >= max ? 'after' : 'fixed');
     };
