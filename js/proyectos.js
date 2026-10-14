@@ -63,7 +63,7 @@
       industry: 'Alimentos · Snacks Premium', hero: ['steakos-hero.webp', 1589], card: { box: [53.611, 11.119, 38.889, 25.175], client: 'Steakos', industry: 'Alimentos · Snacks Premium', services: 'Dirección estratégica de redes sociales<br>(Facebook, Instagram y TikTok) · Producción<br>fotográfica y audiovisual · Diseño de contenido<br>Gestión de campañas Meta Ads y Amazon Ads<br>Community management' } },
     { slug: 'etp', name: 'ETP', w: 200, tint: '#1aa7a1', at: '100% 100%', col: 1, bg: '#f8f8f8', flush: true,
       services: ['Estrategia digital', 'Maquetación, diseño y desarrollo web', 'Contenido web', 'SEO'],
-      industry: 'Transporte y logística', hero: ['etp-hero.webp', 721], gallery: ['etp-galeria.webp', 1814], card: { box: [45.139, 19.877, 47.778, 55.778], client: 'ETP', industry: 'Transporte y logística', services: 'Estrategia digital • Maquetación, diseño y<br>desarrollo web • Contenido web • SEO' } },
+      industry: 'Transporte y logística', hero: ['etp-hero.webp', 721], mcrop: [0, 56.19, 4.16, 97.78], mbleed: true, mcard: 'sep', gallery: ['etp-galeria.webp', 1814], card: { box: [45.139, 19.877, 47.778, 55.778], client: 'ETP', industry: 'Transporte y logística', services: 'Estrategia digital • Maquetación, diseño y<br>desarrollo web • Contenido web • SEO' } },
   ];
 
   const grid = document.getElementById('pj-grid'), detail = document.getElementById('pj-detail');
@@ -99,7 +99,7 @@
   const heroFig = p => {
     const [l, t, w, h] = p.card.box;
     return `
-    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}${p.mround ? ' pj-hero2--round' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
+    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}${p.mround ? ' pj-hero2--round' : ''}${p.mbleed ? ' pj-hero2--bleed' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
       <div class="pj-card2" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">
         <div class="pj-card2__txt">
           <small>Cliente</small><p>${p.card.client}</p>

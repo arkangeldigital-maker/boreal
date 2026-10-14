@@ -1360,3 +1360,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (max-width:820px){.pj-info-sep .pj-info--m{margin-top:24px;border-radius:22px}}
 /* Tox&Re (celular): la foto se recorta por dentro (sin la sombra del PDF) y lleva sus propias esquinas */
 @media (max-width:820px){.pj-hero2--round{border-radius:22px}}
+/* ETP (celular): el camión parte del borde izquierdo de la pantalla y ocupa el 95% del ancho */
+@media (max-width:820px){.pj-hero2--bleed{margin-inline:0;width:95%}}
