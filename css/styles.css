@@ -1340,6 +1340,11 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (max-width:820px){.pj-card2{display:none}}
 /* Proyectos (celular): la foto principal recortada a su propio ancho para llenar el contenedor */
 @media (max-width:820px){
-  .pj-hero2--crop{overflow:hidden;margin-inline:var(--gutter);max-width:none}
-  .pj-hero2--crop img{width:calc(100% * 100 / var(--cw));max-width:none;margin-left:calc(-100% * var(--cl) / var(--cw))}
+  .pj-hero2--crop{overflow:hidden;margin-inline:var(--gutter);max-width:none;aspect-ratio:var(--ar)}
+  .pj-hero2--crop img{width:var(--iw);max-width:none;margin-left:var(--ml);margin-top:var(--mt)}
+}
+/* Proyectos (celular): la ficha morada sale debajo de la foto, al 90% de su ancho y redondeada solo abajo */
+@media (max-width:820px){
+  .pj-info--m{width:90%;margin:0 auto;border-radius:0 0 22px 22px}
+  .pj-case--flush .pj-info--m{margin-bottom:30px}
 }

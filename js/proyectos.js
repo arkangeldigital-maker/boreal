@@ -13,7 +13,7 @@
     { slug: 'coboxin', name: 'Coboxin', tall: true, w: 420, tint: '#1aa7a1', at: '100% 100%', col: 1,
       services: ['Estrategia de marca', 'Branding', 'Diseño de packaging', 'Comercialización', 'Fotografía y video', 'Marketing Digital', 'Publicidad exterior', 'Diseño web', 'Campañas publicitarias en Meta Ads'],
       industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química',
-      hero: ['coboxin-hero.webp', 555], mcrop: [6.1, 58.9], card: { box: [58.819, 14.83, 34.097, 72.144], client: 'Coboxin', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Estrategia de marca · Branding<br>Diseño de packaging · Comercialización<br>Fotografía y video · Marketing Digital<br>Publicidad exterior · Diseño web<br>Campañas publicitarias en Meta Ads' }, gallery: ['coboxin-gallery.webp', 624], wide: ['coboxin-wide.webp', 600],
+      hero: ['coboxin-hero.webp', 555], mcrop: [6.06, 58.88, 0, 100], card: { box: [58.819, 14.83, 34.097, 72.144], client: 'Coboxin', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Estrategia de marca · Branding<br>Diseño de packaging · Comercialización<br>Fotografía y video · Marketing Digital<br>Publicidad exterior · Diseño web<br>Campañas publicitarias en Meta Ads' }, gallery: ['coboxin-gallery.webp', 624], wide: ['coboxin-wide.webp', 600],
       challenge: '<b>COBOXIN</b> necesitaba algo más que una nueva imagen: <em>requería una estrategia</em> que le permitiera ingresar al mercado con una propuesta sólida y diferenciada.',
       challengeText: 'Desde la investigación del sector y el análisis de competidores hasta el desarrollo del empaque, la comunicación y los materiales comerciales, construimos una marca preparada para conectar con distribuidores y clientes desde su lanzamiento.',
       processLabel: 'El proceso',
@@ -25,7 +25,7 @@
     { slug: 'metalyzinc', name: 'Metalyzinc', w: 290, tint: '#c98b2a', at: '100% 0%', col: 2,
       services: ['Consultoría estratégica', 'Diagnóstico de marca', 'Identificación de oportunidades de crecimiento', 'Estrategia de negocio', 'Consultoría comercial', 'Marketing estratégico', 'Marketing Digital', 'Papelería corporativa'],
       industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química',
-      hero: ['metalyzinc-hero.webp', 555], mcrop: [6.3, 59.1], card: { box: [59.097, 14.629, 34.097, 72.144], client: 'Metalyzinc', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Consultoría estratégica · Diagnóstico de<br>marca · Identificación de oportunidades de<br>crecimiento · Estrategia de negocio<br>Consultoría comercial · Marketing estratégico<br>· Marketing Digital · Papelería corporativa' }, gallery: ['metalyzinc-gallery.webp', 445], wide: ['metalyzinc-wide.webp', 530],
+      hero: ['metalyzinc-hero.webp', 555], mcrop: [6.25, 59.1, 0, 100], card: { box: [59.097, 14.629, 34.097, 72.144], client: 'Metalyzinc', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Consultoría estratégica · Diagnóstico de<br>marca · Identificación de oportunidades de<br>crecimiento · Estrategia de negocio<br>Consultoría comercial · Marketing estratégico<br>· Marketing Digital · Papelería corporativa' }, gallery: ['metalyzinc-gallery.webp', 445], wide: ['metalyzinc-wide.webp', 530],
       challengeLead: 'A pesar de contar con una amplia trayectoria y liderazgo técnico en el sector anticorrosivo,',
       challenge: 'Metalyzinc buscaba fortalecer su posicionamiento comercial e identificar nuevas oportunidades de crecimiento.',
       processLabel: 'El desafío consistió en:',
@@ -33,16 +33,16 @@
       result: 'Una estrategia con visión de largo plazo que permitió establecer prioridades, fortalecer el posicionamiento de la empresa y orientar sus siguientes etapas de crecimiento.' },
     { slug: 'yeimetz', name: 'Yeimetz', w: 220, tint: '#2c6f9a', at: '0% 100%', col: 1,
       services: ['Estrategia digital', 'Diseño y desarrollo web', 'Contenido web', 'SEO y SEM'],
-      industry: 'Ingeniería · Construcción<br>Infraestructura industrial', hero: ['yeimetz-hero.webp', 879], gallery: ['yeimetz-galeria.webp', 779], card: { box: [58.611, 20.48, 34.444, 45.512], client: 'Yeimetz', industry: 'Ingeniería · Construcción<br>Infraestructura industrial', services: 'Estrategia digital · Diseño y desarrollo web<br>Contenido web · SEO y SEM' } },
+      industry: 'Ingeniería · Construcción<br>Infraestructura industrial', hero: ['yeimetz-hero.webp', 879], mcrop: [6.13, 58.5, 2.96, 98.52], gallery: ['yeimetz-galeria.webp', 779], card: { box: [58.611, 20.48, 34.444, 45.512], client: 'Yeimetz', industry: 'Ingeniería · Construcción<br>Infraestructura industrial', services: 'Estrategia digital · Diseño y desarrollo web<br>Contenido web · SEO y SEM' } },
     { slug: 'sperta', name: 'Sperta', fullName: 'SPERTA Dental Care Center®', tall: true, w: 200, tint: '#a3316a', at: '100% 100%', col: 2,
       services: ['Estrategia digital', 'Diseño y desarrollo web', 'Contenido web', 'SEO y SEM', 'Fotografía y video', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Estrategia de campañas en Meta Ads'],
-      industry: 'Salud · Clínica Dental<br>Servicios odontológicos', hero: ['sperta-hero.webp', 594], gallery: ['sperta-galeria.webp', 2144], card: { box: [59.306, 17.978, 34.028, 67.416], client: 'SPERTA Dental Care Center®', industry: 'Salud · Clínica Dental<br>Servicios odontológicos', services: 'Estrategia digital · Diseño y desarrollo web<br>· Contenido web · SEO y SEM · Fotografía y<br>video · Dirección estratégica de redes<br>sociales (Facebook e Instagram)<br>Estrategia de campañas en Meta Ads' } },
+      industry: 'Salud · Clínica Dental<br>Servicios odontológicos', hero: ['sperta-hero.webp', 594], mcrop: [6.56, 59.19, 4.55, 97.81], gallery: ['sperta-galeria.webp', 2144], card: { box: [59.306, 17.978, 34.028, 67.416], client: 'SPERTA Dental Care Center®', industry: 'Salud · Clínica Dental<br>Servicios odontológicos', services: 'Estrategia digital · Diseño y desarrollo web<br>· Contenido web · SEO y SEM · Fotografía y<br>video · Dirección estratégica de redes<br>sociales (Facebook e Instagram)<br>Estrategia de campañas en Meta Ads' } },
     { slug: 'afp-courts', name: 'AFP Courts', fullName: 'AFP Courts México', tall: true, w: 180, tint: '#b08a2e', at: '0% 0%', col: 1,
       services: ['Estrategia digital', 'Maquetación web', 'Diseño y desarrollo web', 'Contenido web', 'SEO y SEM', 'Estrategia publicitaria en Google Ads'],
-      industry: 'Infraestructura deportiva · Construcción de canchas de Pádel · Ingeniería deportiva', hero: ['afp-courts-hero.webp', 714], gallery: ['afp-courts-galeria.webp', 1467], card: { box: [55.139, 22.586, 37.917, 56.075], client: 'AFP Courts México', industry: 'Infraestructura deportiva · Construcción<br>de canchas de Pádel · Ingeniería deportiva', services: 'Estrategia digital · Maquetación web · Diseño<br>y desarrollo web · Contenido web · SEO y<br>SEM · Estrategia publicitaria en Google Ads' } },
+      industry: 'Infraestructura deportiva · Construcción de canchas de Pádel · Ingeniería deportiva', hero: ['afp-courts-hero.webp', 714], mcrop: [6.18, 58.4, 8.68, 93.28], gallery: ['afp-courts-galeria.webp', 1467], card: { box: [55.139, 22.586, 37.917, 56.075], client: 'AFP Courts México', industry: 'Infraestructura deportiva · Construcción<br>de canchas de Pádel · Ingeniería deportiva', services: 'Estrategia digital · Maquetación web · Diseño<br>y desarrollo web · Contenido web · SEO y<br>SEM · Estrategia publicitaria en Google Ads' } },
     { slug: 'dagsa', name: 'Dagsa Logistics', w: 215, tint: '#2a86a8', at: '0% 0%', col: 2, bg: '#ededed', flush: true,
       services: ['Estrategia digital', 'Maquetación web', 'Diseño y desarrollo web', 'Contenido web', 'SEO', 'Papelería corporativa'],
-      industry: 'Logística · Cadena de suministro<br>Comercio exterior', hero: ['dagsa-hero.webp', 637], gallery: ['dagsa-galeria.webp', 793], card: { box: [61.111, 19.546, 32.083, 62.827], client: 'Dagsa Logistics', industry: 'Logística · Cadena de suministro<br>Comercio exterior', services: 'Estrategia digital · Maquetación web<br>Diseño y desarrollo web · Contenido web<br>SEO · Papelería corporativa' } },
+      industry: 'Logística · Cadena de suministro<br>Comercio exterior', hero: ['dagsa-hero.webp', 637], mcrop: [6.25, 61.18, 3.77, 98.12], gallery: ['dagsa-galeria.webp', 793], card: { box: [61.111, 19.546, 32.083, 62.827], client: 'Dagsa Logistics', industry: 'Logística · Cadena de suministro<br>Comercio exterior', services: 'Estrategia digital · Maquetación web<br>Diseño y desarrollo web · Contenido web<br>SEO · Papelería corporativa' } },
     { slug: 'aeternum', name: 'Aeternum', fullBleed: true, w: 270, tint: '#a3316a', at: '100% 100%', col: 1,
       services: ['Estrategia digital', 'Maquetación web', 'Diseño y desarrollo web', 'Contenido web', 'SEO y SEM', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Estrategia de campañas en Meta Ads'],
       industry: 'Tecnología Financiera · Blockchain · Criptomonedas', hero: ['aeternum-hero.webp', 943], gallery: ['aeternum-galeria.webp', 1224], card: { box: [50.139, 18.986, 42.917, 42.453], client: 'Aeternum', industry: 'Tecnología Financiera · Blockchain · Criptomonedas', services: 'Estrategia digital · Maquetación web · Diseño y<br>desarrollo web · Contenido web · SEO y SEM<br>Dirección estratégica de redes sociales (Facebook<br>e Instagram) · Estrategia de campañas en Meta Ads' } },
@@ -57,7 +57,7 @@
       industry: 'Automotriz', hero: ['vitanova-hero.webp', 1537], gallery: ['vitanova-galeria.webp', 1158], card: { box: [41.528, 8.098, 51.389, 22.56], client: 'Vitanova Center Tires', industry: 'Automotriz', services: 'Estrategia publicitaria en Meta Ads (Facebook e Instagram)<br>Campañas en Google Ads · Diseño de artes publicitarios<br>Dirección estratégica de redes sociales (Facebook, Instagram)' } },
     { slug: 'toxre', name: 'Tox&Re', w: 300, tint: '#6c4bb3', at: '100% 100%', col: 1, flush: true,
       services: ['Estrategia publicitaria en Meta Ads (Facebook e Instagram)', 'Campañas en Google Ads', 'Diseño de artes publicitarios', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Producción fotográfica y audiovisual'],
-      industry: 'Medicina Estética', hero: ['toxre-hero.webp', 789], gallery: ['toxre-galeria.webp', 1070], card: { box: [50.417, 18.592, 42.5, 50.704], client: 'Tox&amp;Re', industry: 'Medicina Estética', services: 'Estrategia publicitaria en Meta Ads (Facebook e<br>Instagram) · Campañas en Google Ads · Diseño<br>de artes publicitarios · Dirección estratégica de<br>redes sociales (Facebook e Instagram) ·<br>Producción fotográfica y audiovisual' } },
+      industry: 'Medicina Estética', hero: ['toxre-hero.webp', 789], mcrop: [6.25, 50.5, 3.17, 98.48], gallery: ['toxre-galeria.webp', 1070], card: { box: [50.417, 18.592, 42.5, 50.704], client: 'Tox&amp;Re', industry: 'Medicina Estética', services: 'Estrategia publicitaria en Meta Ads (Facebook e<br>Instagram) · Campañas en Google Ads · Diseño<br>de artes publicitarios · Dirección estratégica de<br>redes sociales (Facebook e Instagram) ·<br>Producción fotográfica y audiovisual' } },
     { slug: 'steakos', name: 'Steakos', tall: true, w: 170, tint: '#a3316a', at: '100% 100%', col: 2, flush: true,
       services: ['Dirección estratégica de redes sociales (Facebook, Instagram y TikTok)', 'Producción fotográfica y audiovisual', 'Diseño de contenido', 'Gestión de campañas Meta Ads y Amazon Ads', 'Community management'],
       industry: 'Alimentos · Snacks Premium', hero: ['steakos-hero.webp', 1589], card: { box: [53.611, 11.119, 38.889, 25.175], client: 'Steakos', industry: 'Alimentos · Snacks Premium', services: 'Dirección estratégica de redes sociales<br>(Facebook, Instagram y TikTok) · Producción<br>fotográfica y audiovisual · Diseño de contenido<br>Gestión de campañas Meta Ads y Amazon Ads<br>Community management' } },
@@ -91,10 +91,15 @@
     <figure class="pj-shot ${cls}"><img src="${P}${file}" width="1600" height="${h}" alt="${p.fullName || p.name}: proyecto de Boreal" decoding="async"></figure>`;
   // imagen principal con la ficha del cliente en HTML, en el mismo lugar que en el PDF (detrás de la imagen,
   // que tiene ese hueco transparente, para que objetos como el autobús o el celular queden por delante)
+  // celular: recorte de la foto principal [izq, der, arriba, abajo] en % de la imagen, para que llene el contenedor
+  const crop = p => {
+    const [l, r, t, b] = p.mcrop, k = 100 / (r - l), ar = p.hero[1] / 1600;
+    return `--iw:${(k * 100).toFixed(3)}%;--ml:${(-l * k).toFixed(3)}%;--mt:${(-t / 100 * k * ar * 100).toFixed(3)}%;--ar:${(1 / ((b - t) / 100 * k * ar)).toFixed(4)}`;
+  };
   const heroFig = p => {
     const [l, t, w, h] = p.card.box;
     return `
-    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}"${p.mcrop ? ` style="--cl:${p.mcrop[0]};--cw:${p.mcrop[1] - p.mcrop[0]}"` : ''}>
+    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
       <div class="pj-card2" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">
         <div class="pj-card2__txt">
           <small>Cliente</small><p>${p.card.client}</p>
@@ -106,12 +111,13 @@
     </figure>`;
   };
   // en celular la ficha se lee aparte, debajo de la imagen
-  const flat = t => t.replace(/\s*[·•]?\s*<br>\s*[·•]?\s*/g, ' · ');
+  // un salto antes de minúscula o paréntesis continúa la frase; si no, separa conceptos
+  const flat = t => t.replace(/\s*[·•]?\s*<br>\s*[·•]?\s*(?=(.))/g, (m, c) => /[a-záéíóúñ(]/.test(c) ? ' ' : ' · ');
   const info = p => `
     <aside class="pj-info pj-info--m">
       <small>Cliente</small><p>${p.card.client}</p>
       <small>Industria</small><p>${flat(p.card.industry)}</p>
-      <small>Servicios</small><p>${flat(p.card.services)}</p>
+      <small>Servicios</small><p>${p.services.join(' · ')}</p>
     </aside>`;
   const upIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
   const toTop = `<div class="container pj-totop-row"><button type="button" class="pj-totop-link" data-totop>${upIcon}<span>Volver al inicio del proyecto</span></button></div>`;
