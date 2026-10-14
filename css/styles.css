@@ -1243,6 +1243,11 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .svc-prism{width:clamp(200px,24vw,360px);bottom:auto;z-index:0}
   .svc-item{z-index:1}
 }
-/* Home: foto de Karen con el fondo extendido a la izquierda (karen-home-ancha, 2160×1200) para que la foto llene la mitad de la pantalla; Karen conserva su tamaño */
+/* Home: la foto de Karen llena la mitad izquierda de la pantalla. Se agranda para que su desvanecido
+   a blanco caiga justo en el centro y se recorta arriba (solo fondo, nunca a Karen) */
 .founder__photo img{display:block;width:100%;height:auto}
-@media (min-width:821px){.founder__photo{width:calc(var(--photo) * 1.35)}}
+@media (min-width:821px){
+  .founder__stage{min-height:max(calc(var(--photo) * .75), 51vw)}
+  .founder__photo{width:50vw;height:51vw;overflow:hidden}
+  .founder__photo img{position:absolute;left:0;bottom:0;width:86vw;max-width:none}
+}
