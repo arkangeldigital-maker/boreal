@@ -1368,3 +1368,9 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .pj-case{overflow-x:clip}
   .pj-hero2,.pj-shot:not(.pj-shot--full){--cw:min(100% - 2 * var(--gutter), var(--max));width:calc(var(--cw) / .87);max-width:none;margin-left:calc((100% - var(--cw)) / 2 - var(--cw) / .87 * .06);margin-right:0}
 }
+/* Steakos (celular): primero la ficha morada y debajo las imágenes */
+@media (max-width:820px){
+  .pj-case--mfirst{display:flex;flex-direction:column}
+  .pj-case--mfirst>.container{order:-1}
+  .pj-case--mfirst .pj-info-sep .pj-info--m{margin:0 auto 24px}
+}
