@@ -1243,3 +1243,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .svc-prism{width:clamp(200px,24vw,360px);bottom:auto;z-index:0}
   .svc-item{z-index:1}
 }
+/* Home: foto de Karen con el fondo extendido a la izquierda (karen-home-ancha, 2160×1200) para que la foto llene la mitad de la pantalla; Karen conserva su tamaño */
+.founder__photo img{display:block;width:100%;height:auto}
+@media (min-width:821px){.founder__photo{width:calc(var(--photo) * 1.35)}}
