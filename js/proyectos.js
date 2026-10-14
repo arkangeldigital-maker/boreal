@@ -57,7 +57,7 @@
       industry: 'Automotriz', hero: ['vitanova-hero.webp', 1537], gallery: ['vitanova-galeria.webp', 1158], card: { box: [41.528, 8.098, 51.389, 22.56], client: 'Vitanova Center Tires', industry: 'Automotriz', services: 'Estrategia publicitaria en Meta Ads (Facebook e Instagram)<br>Campañas en Google Ads · Diseño de artes publicitarios<br>Dirección estratégica de redes sociales (Facebook, Instagram)' } },
     { slug: 'toxre', name: 'Tox&Re', w: 300, tint: '#6c4bb3', at: '100% 100%', col: 1, flush: true,
       services: ['Estrategia publicitaria en Meta Ads (Facebook e Instagram)', 'Campañas en Google Ads', 'Diseño de artes publicitarios', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Producción fotográfica y audiovisual'],
-      industry: 'Medicina Estética', hero: ['toxre-hero.webp', 789], mcrop: [6.25, 50.5, 3.17, 98.48], gallery: ['toxre-galeria.webp', 1070], card: { box: [50.417, 18.592, 42.5, 50.704], client: 'Tox&amp;Re', industry: 'Medicina Estética', services: 'Estrategia publicitaria en Meta Ads (Facebook e<br>Instagram) · Campañas en Google Ads · Diseño<br>de artes publicitarios · Dirección estratégica de<br>redes sociales (Facebook e Instagram) ·<br>Producción fotográfica y audiovisual' } },
+      industry: 'Medicina Estética', hero: ['toxre-hero.webp', 789], mcrop: [6.9, 49.5, 3.9, 95.0], mround: true, gallery: ['toxre-galeria.webp', 1070], card: { box: [50.417, 18.592, 42.5, 50.704], client: 'Tox&amp;Re', industry: 'Medicina Estética', services: 'Estrategia publicitaria en Meta Ads (Facebook e<br>Instagram) · Campañas en Google Ads · Diseño<br>de artes publicitarios · Dirección estratégica de<br>redes sociales (Facebook e Instagram) ·<br>Producción fotográfica y audiovisual' } },
     { slug: 'steakos', name: 'Steakos', tall: true, w: 170, tint: '#a3316a', at: '100% 100%', col: 2, flush: true,
       services: ['Dirección estratégica de redes sociales (Facebook, Instagram y TikTok)', 'Producción fotográfica y audiovisual', 'Diseño de contenido', 'Gestión de campañas Meta Ads y Amazon Ads', 'Community management'],
       industry: 'Alimentos · Snacks Premium', hero: ['steakos-hero.webp', 1589], card: { box: [53.611, 11.119, 38.889, 25.175], client: 'Steakos', industry: 'Alimentos · Snacks Premium', services: 'Dirección estratégica de redes sociales<br>(Facebook, Instagram y TikTok) · Producción<br>fotográfica y audiovisual · Diseño de contenido<br>Gestión de campañas Meta Ads y Amazon Ads<br>Community management' } },
@@ -99,7 +99,7 @@
   const heroFig = p => {
     const [l, t, w, h] = p.card.box;
     return `
-    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
+    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}${p.mround ? ' pj-hero2--round' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
       <div class="pj-card2" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">
         <div class="pj-card2__txt">
           <small>Cliente</small><p>${p.card.client}</p>
