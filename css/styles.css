@@ -1295,3 +1295,7 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 /* Footer: el logo blanco sobre morado se ve más grueso; un trazo del color del fondo lo adelgaza al peso del menú */
 .footer .logo-svg path,.footer .logo-svg rect{stroke:var(--footer);stroke-width:12px;paint-order:normal}
 .footer__cols .footer__brand .logo-svg{height:37px}
+/* Borealízate: prisma amarillo del hero más arriba y por encima de la sección siguiente (sin recortarse), sin tapar "Así es cómo…" */
+.bhero{overflow:clip visible}
+@media (min-width:821px){.bz-gold{--w:clamp(220px,25.3vw,380px);width:var(--w);top:auto;bottom:calc(var(--w) * -.3 + 80px);z-index:6}}
+.how__intro{position:relative;z-index:7}
