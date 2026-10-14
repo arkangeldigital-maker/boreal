@@ -1449,3 +1449,40 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   body[data-page="home"] .svc-dots button{transition:height .6s var(--ease),background .4s}
   body[data-page="home"] .svc-item{padding-right:44px}
 }
+
+/* ================= Servicios y Sesión Norte en celular ================= */
+@media (max-width:820px){
+  /* Servicios · hero: el aro sube a la derecha, cortado, y el botón queda visible al entrar */
+  body[data-page="servicios"] .phero{min-height:0;padding:110px 0 60px}
+  body[data-page="servicios"] .phero__grid>div:first-child{position:relative;z-index:2}
+  body[data-page="servicios"] .phero__side{display:block;width:auto;justify-self:start;margin-top:4px;position:static}
+  body[data-page="servicios"] .phero__grid{position:static}
+  body[data-page="servicios"] .phero__ring{position:absolute;z-index:0;right:-26vw;top:80px;width:58vw}
+  body[data-page="servicios"] .phero__side .btn{position:relative;z-index:2}
+  body[data-page="servicios"] .phero p.lead{margin-bottom:26px}
+  body[data-page="servicios"] .phero__ring{position:absolute}
+  body[data-page="servicios"] .phero__prism{bottom:-6%;width:34vw}
+
+  /* Método Boreal: dos columnas de dos fases */
+  body[data-page="servicios"] .phases{grid-template-columns:1fr 1fr;column-gap:18px;row-gap:26px}
+  body[data-page="servicios"] .method{padding-bottom:40px}
+  body[data-page="servicios"] .method__prism{width:40vw;right:-14vw;bottom:-14vw}
+
+  /* Aros dorados que tapaban texto */
+  body[data-page="servicios"] .svc-head .svc-head__ring,body[data-page="servicios"] #consultoria>.fig{display:none}
+
+  /* Lanzamiento integral: viñetas alineadas a la izquierda */
+  body[data-page="servicios"] .ticks li{justify-content:flex-end}
+
+  /* FAQ: prismas chicos, a los costados y detrás de las preguntas */
+  body[data-page="servicios"] .faq>.container{position:relative;z-index:2}
+  body[data-page="servicios"] .faq>.fig.fx:not(.faq__purple){z-index:0;width:120px!important}
+  body[data-page="servicios"] .faq>.fig.fx:nth-of-type(3){right:-70px!important;left:auto!important;top:auto!important;bottom:-40px}
+  body[data-page="servicios"] .faq>.fig.fx:nth-of-type(4){left:-70px!important;bottom:auto!important;top:150px}
+
+  /* Sesión Norte · hero: figuras a la derecha, cortadas y detrás del texto, sin espacio extra abajo */
+  .shero{min-height:0;padding:110px 0 60px;background:radial-gradient(circle at 100% 30%,rgba(150,100,30,.3) 0,rgba(150,100,30,.1) 30vw,rgba(150,100,30,0) 55vw),#1c1235}
+  .sn-ring{left:auto;right:-26vw;top:70px;bottom:auto;width:60vw;opacity:.9}
+  .sn-gold{left:auto;right:20vw;top:92px;bottom:auto;width:12vw;opacity:.9}
+  .sn-teal{left:auto;right:30vw;top:60px;bottom:auto;width:30vw;opacity:.7}
+}
