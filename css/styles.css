@@ -1299,3 +1299,31 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .bhero{overflow:clip visible}
 @media (min-width:821px){.bz-gold{--w:clamp(220px,25.3vw,380px);width:var(--w);top:auto;bottom:calc(var(--w) * -.3 + 80px);z-index:6}}
 .how__intro{position:relative;z-index:7}
+/* ---------- Proyectos: casos tomados del PDF (composición en una imagen optimizada) ---------- */
+.pj-case--shot{background:var(--case-bg,#fff);padding:clamp(16px,2vw,30px) 0 clamp(40px,4vw,60px)}
+.pj-case--flush{padding-bottom:0}
+.pj-shot{margin:0 auto;max-width:1440px}
+.pj-shot img{display:block;width:100%;height:auto}
+.pj-wide{margin-top:clamp(40px,4.5vw,64px)}
+.pj-case--shot .pj-reto{padding-top:clamp(40px,4vw,60px)}
+.pj-reto__lead{margin:0 0 10px!important;font-size:clamp(13px,1.05vw,15px)!important}
+.pj-case--shot .pj-process{margin-top:clamp(40px,4.5vw,64px)}
+/* ficha del cliente en HTML: solo en celular (en escritorio ya va dentro de la imagen) */
+.pj-info--m{display:none}
+@media (max-width:820px){
+  .pj-info--m{display:block;margin:18px 0 0;border-radius:22px;text-align:left;min-height:0}
+  .pj-case--flush .pj-info--m{margin-bottom:30px}
+}
+/* volver al inicio del proyecto: enlace al final del caso y botón flotante */
+.pj-totop-row{display:flex;justify-content:center;padding-top:clamp(30px,3vw,44px)}
+.pj-totop-link{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:40px;border:1.5px solid #d9d4e8;background:#fff;color:var(--night);font:600 15px/1 var(--head);cursor:pointer;transition:background .3s,border-color .3s,transform .4s var(--ease)}
+.pj-totop-link svg{width:18px;height:18px}
+.pj-totop-link:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
+.pj-totop{position:fixed;right:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px);z-index:40;width:54px;height:54px;border-radius:50%;border:0;background:var(--gold);color:#000;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .4s,transform .5s var(--ease)}
+.pj-totop svg{width:22px;height:22px}
+.pj-totop.on{opacity:1;transform:none;pointer-events:auto}
+.pj-totop:hover{background:#fff}
+/* Loader: logo más delgado (trazo del color del fondo que lo adelgaza, como en el footer) */
+.curtain__logo .logo-svg path,.curtain__logo .logo-svg rect{stroke:var(--night);stroke-width:16px}
+/* Footer: la "l" del logo alineada a la derecha con el texto de abajo; el MR sobresale a un lado */
+@media (min-width:821px){.footer__cols .footer__brand .logo-svg{margin-right:calc(37px * -.453)}}
