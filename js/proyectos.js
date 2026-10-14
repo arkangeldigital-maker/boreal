@@ -13,7 +13,7 @@
     { slug: 'coboxin', name: 'Coboxin', tall: true, w: 420, tint: '#1aa7a1', at: '100% 100%', col: 1,
       services: ['Estrategia de marca', 'Branding', 'Diseño de packaging', 'Comercialización', 'Fotografía y video', 'Marketing Digital', 'Publicidad exterior', 'Diseño web', 'Campañas publicitarias en Meta Ads'],
       industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química',
-      hero: ['coboxin-hero.webp', 555], card: { box: [58.819, 14.83, 34.097, 72.144], client: 'Coboxin', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Estrategia de marca · Branding<br>Diseño de packaging · Comercialización<br>Fotografía y video · Marketing Digital<br>Publicidad exterior · Diseño web<br>Campañas publicitarias en Meta Ads' }, gallery: ['coboxin-gallery.webp', 624], wide: ['coboxin-wide.webp', 600],
+      hero: ['coboxin-hero.webp', 555], mcrop: [6.1, 58.9], card: { box: [58.819, 14.83, 34.097, 72.144], client: 'Coboxin', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Estrategia de marca · Branding<br>Diseño de packaging · Comercialización<br>Fotografía y video · Marketing Digital<br>Publicidad exterior · Diseño web<br>Campañas publicitarias en Meta Ads' }, gallery: ['coboxin-gallery.webp', 624], wide: ['coboxin-wide.webp', 600],
       challenge: '<b>COBOXIN</b> necesitaba algo más que una nueva imagen: <em>requería una estrategia</em> que le permitiera ingresar al mercado con una propuesta sólida y diferenciada.',
       challengeText: 'Desde la investigación del sector y el análisis de competidores hasta el desarrollo del empaque, la comunicación y los materiales comerciales, construimos una marca preparada para conectar con distribuidores y clientes desde su lanzamiento.',
       processLabel: 'El proceso',
@@ -25,7 +25,7 @@
     { slug: 'metalyzinc', name: 'Metalyzinc', w: 290, tint: '#c98b2a', at: '100% 0%', col: 2,
       services: ['Consultoría estratégica', 'Diagnóstico de marca', 'Identificación de oportunidades de crecimiento', 'Estrategia de negocio', 'Consultoría comercial', 'Marketing estratégico', 'Marketing Digital', 'Papelería corporativa'],
       industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química',
-      hero: ['metalyzinc-hero.webp', 555], card: { box: [59.097, 14.629, 34.097, 72.144], client: 'Metalyzinc', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Consultoría estratégica · Diagnóstico de<br>marca · Identificación de oportunidades de<br>crecimiento · Estrategia de negocio<br>Consultoría comercial · Marketing estratégico<br>· Marketing Digital · Papelería corporativa' }, gallery: ['metalyzinc-gallery.webp', 445], wide: ['metalyzinc-wide.webp', 530],
+      hero: ['metalyzinc-hero.webp', 555], mcrop: [6.3, 59.1], card: { box: [59.097, 14.629, 34.097, 72.144], client: 'Metalyzinc', industry: 'Metalúrgica · Productos anticorrosivos<br>Industria química', services: 'Consultoría estratégica · Diagnóstico de<br>marca · Identificación de oportunidades de<br>crecimiento · Estrategia de negocio<br>Consultoría comercial · Marketing estratégico<br>· Marketing Digital · Papelería corporativa' }, gallery: ['metalyzinc-gallery.webp', 445], wide: ['metalyzinc-wide.webp', 530],
       challengeLead: 'A pesar de contar con una amplia trayectoria y liderazgo técnico en el sector anticorrosivo,',
       challenge: 'Metalyzinc buscaba fortalecer su posicionamiento comercial e identificar nuevas oportunidades de crecimiento.',
       processLabel: 'El desafío consistió en:',
@@ -94,7 +94,7 @@
   const heroFig = p => {
     const [l, t, w, h] = p.card.box;
     return `
-    <figure class="pj-hero2">
+    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}"${p.mcrop ? ` style="--cl:${p.mcrop[0]};--cw:${p.mcrop[1] - p.mcrop[0]}"` : ''}>
       <div class="pj-card2" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">
         <div class="pj-card2__txt">
           <small>Cliente</small><p>${p.card.client}</p>
@@ -106,7 +106,7 @@
     </figure>`;
   };
   // en celular la ficha se lee aparte, debajo de la imagen
-  const flat = t => t.replace(/<br>/g, ' ');
+  const flat = t => t.replace(/\s*[·•]?\s*<br>\s*[·•]?\s*/g, ' · ');
   const info = p => `
     <aside class="pj-info pj-info--m">
       <small>Cliente</small><p>${p.card.client}</p>
