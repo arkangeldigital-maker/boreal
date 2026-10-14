@@ -1332,7 +1332,7 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 /* Proyectos: imagen principal + ficha del cliente en HTML (escala con el ancho de la imagen) */
 .pj-hero2{position:relative;margin:0 auto;max-width:1440px;container-type:inline-size}
 .pj-hero2 img{position:relative;z-index:1;display:block;width:100%;height:auto}
-.pj-card2{position:absolute;z-index:0;background:#241c3c;border-radius:2.1cqw;color:#fff;text-align:right;display:flex;justify-content:flex-end}
+.pj-card2{position:absolute;z-index:0;background:#241c3c;border-radius:0 2.1cqw 2.1cqw 0;color:#fff;text-align:right;display:flex;justify-content:flex-end}
 .pj-card2__txt{padding:3.1cqw 4.4cqw 0 0;white-space:nowrap}
 .pj-card2 small{display:block;font:500 .76cqw/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:#a79fc4;margin-bottom:.75cqw}
 .pj-card2 p{margin:0 0 1.5cqw;font-size:1.18cqw;line-height:1.36}
