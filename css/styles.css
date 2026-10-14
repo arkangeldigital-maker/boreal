@@ -1376,3 +1376,57 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 }
 /* Proyectos (celular): la ficha pegada a la foto se monta 4 px sobre ella para tapar la orilla clara del recorte */
 @media (max-width:820px){.pj-anim:has(.pj-hero2--crop)+.container:not(.pj-info-sep) .pj-info--m{position:relative;z-index:2;margin-top:-4px}}
+
+/* ================= Home en celular (según Home-movil.pdf) ================= */
+@media (max-width:820px){
+  /* Hero: el texto va primero; el aro grande queda detrás, cortado a la derecha */
+  body[data-page="home"] .hero{min-height:0;padding:110px 0 96px}
+  body[data-page="home"] .hero__art{position:absolute;inset:0;height:auto;margin:0}
+  body[data-page="home"] .hf--ring{left:70cqw;top:150px;width:58cqw}
+  body[data-page="home"] .hf--red{left:46cqw;top:24px;width:22cqw}
+  body[data-page="home"] .hf--teal{left:74cqw;top:400px;width:24cqw}
+  body[data-page="home"] .hf--purple,body[data-page="home"] .hf--gold,body[data-page="home"] .hf--rays,body[data-page="home"] .hero__glow,body[data-page="home"] .scroll-cue{display:none}
+  body[data-page="home"] .hero__tag,body[data-page="home"] .hero__tag.reveal,body[data-page="home"] .hero__tag.reveal.in{left:var(--gutter);top:auto;bottom:34px;transform:none;text-align:left;letter-spacing:.3em;font-size:12px}
+  body[data-page="home"] .hero h1{font-size:clamp(30px,8.4vw,38px);margin:14px 0 20px}
+  body[data-page="home"] .hero h1 .br-d{display:inline}
+  body[data-page="home"] .hero .btn{font-size:13px;padding:15px 22px;white-space:nowrap}
+  body[data-page="home"] .hero__alt{margin-top:22px}
+  body[data-page="home"] .hero__alt p{font-size:16px}
+  body[data-page="home"] .hero__alt a{font-size:14px}
+
+  /* Servicios: los tres servicios en lista, sin el bloque fijo con scroll */
+  body[data-page="home"] .svc-scroll{height:auto;margin-bottom:0}
+  body[data-page="home"] .svc-sticky{position:static;height:auto;display:block}
+  body[data-page="home"] .svc-stage{height:auto;display:grid;gap:56px;padding-block:30px 20px}
+  body[data-page="home"] .svc-item{position:static;width:auto;opacity:1!important;filter:none!important;transform:none!important}
+  body[data-page="home"] .svc-prism,body[data-page="home"] .svc-dots{display:none}
+  body[data-page="home"] .svc-intro__ring{width:52vw}
+
+  /* Capacidades: alineadas a la izquierda, cada título en un renglón */
+  body[data-page="home"] .caps{text-align:left}
+  body[data-page="home"] .caps>h3{font-size:24px}
+  body[data-page="home"] .cap--l,body[data-page="home"] .cap--c,body[data-page="home"] .cap--r{align-items:flex-start;text-align:left}
+  body[data-page="home"] .cap::before{left:30%!important}
+  body[data-page="home"] .cap h4 .xl{font-size:clamp(24px,7.6vw,32px)}
+  body[data-page="home"] .cap h4 .sub{font-size:12px}
+
+  /* Resultados: título más grande */
+  body[data-page="home"] .results h2{font-size:clamp(46px,13vw,56px)}
+  body[data-page="home"] .results h2 small{font-size:.66em}
+
+  /* Karen: foto a la izquierda y los títulos a su lado, a la derecha; luego el texto y el botón */
+  .founder__stage{display:grid;grid-template-columns:38% 16% 1fr;margin-top:30px}
+  .founder__content,.founder__txt{display:contents}
+  .founder__photo{grid-column:1/3;grid-row:1/3;width:auto;height:340px;overflow:hidden}
+  .founder__photo img{width:auto;height:100%;max-width:none;margin-left:-30%}
+  .founder__prism{display:none}
+  .founder__txt h3{grid-column:2/4;grid-row:1;position:relative;z-index:2;text-align:right;padding:34px var(--gutter) 0 0;margin:0 0 18px;font-size:clamp(19px,5.4vw,23px)}
+  .founder__txt h4{grid-column:2/4;grid-row:2;position:relative;z-index:2;text-align:right;padding-right:var(--gutter);margin:0;color:var(--night);font-size:clamp(17px,4.8vw,20px)}
+  .founder__txt p{grid-column:1/-1;grid-row:3;text-align:right;padding:30px var(--gutter) 0;margin:0}
+  .founder__txt .btn{grid-column:1/-1;grid-row:4;justify-self:end;margin:24px var(--gutter) 30px 0;font-size:13px;padding:15px 22px}
+
+  /* Footer: todo centrado y el logo más chico */
+  .footer__cols .footer__brand .logo-svg{height:26px;margin-right:0}
+  .footer__cols{gap:22px}
+  .footer__contact a{margin-bottom:4px}
+}
