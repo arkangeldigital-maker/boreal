@@ -1258,3 +1258,21 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .footer__cols .footer__brand .logo-svg{height:clamp(30px,3vw,40px);display:inline-block}
 .footer__cols .footer__brand .sinergia{justify-content:flex-end;margin-top:14px}
 @media (max-width:820px){.footer__cols .footer__brand{text-align:center}.footer__cols .footer__brand .sinergia{justify-content:center}}
+/* Servicios: el hero ocupa todo el alto de la pantalla; si el contenido no cabe, crece */
+.phero{min-height:100vh;min-height:100svh}
+/* Método Boreal: escalonado corto, cada fase empieza a la altura del título de la anterior */
+@media (min-width:1025px){
+  .phases{--step:calc(clamp(13px,1.1vw,16px) + 10px)}
+  .phase__n{display:block}
+  .phase:nth-child(2){padding-top:var(--step)}
+  .phase:nth-child(3){padding-top:calc(var(--step) * 2)}
+  .phase:nth-child(4){padding-top:calc(var(--step) * 3)}
+}
+/* Mentorías: botones de ambas tarjetas a la misma altura */
+.mentor__card{display:flex;flex-direction:column;align-items:flex-start}
+.mentor__card>p:last-of-type{margin-bottom:28px}
+.mentor__card .btn{margin-top:auto}
+/* Boutique/FAQ: prisma morado más chico y más abajo para no tapar el botón de la Sesión Norte */
+@media (min-width:821px){.faq__purple{width:clamp(240px,26vw,400px);top:-110px;right:-2vw}}
+/* FAQ: menos espacio arriba y abajo */
+.faq{padding-block:clamp(48px,6vw,90px)}
