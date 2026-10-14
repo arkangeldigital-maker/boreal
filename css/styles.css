@@ -1324,7 +1324,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .pj-totop.on{opacity:1;transform:none;pointer-events:auto}
 .pj-totop:hover{background:#fff}
 /* Loader: logo más delgado (trazo del color del fondo que lo adelgaza, como en el footer) */
-.curtain__logo .logo-svg path,.curtain__logo .logo-svg rect{stroke:var(--night);stroke-width:16px}
 /* Footer: la "l" del logo alineada a la derecha con el texto de abajo; el MR sobresale a un lado */
 @media (min-width:821px){.footer__cols .footer__brand .logo-svg{margin-right:calc(37px * -.453)}}
 /* Sesión Norte: los 4 números de "Lo que trabajamos en la sesión" con el mismo color que el 01 y el 02 */
@@ -1443,7 +1442,7 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   body[data-page="home"] .svc-intro__row p,body[data-page="home"] .svc-intro__row p:first-child{text-align:center;white-space:normal}
   body[data-page="home"] .svc-intro__ring,body[data-page="home"] .svc-intro__ph{order:-1;justify-self:center;margin:0 auto}
   body[data-page="home"] .svc-intro__ring{width:52vw}
-  body[data-page="home"] .svc-intro__ring.is-fixed{transition:left .7s var(--ease)}
+  body[data-page="home"] .svc-intro__ring.is-fixed{transition:left .9s cubic-bezier(.45,0,.25,1)}
   body[data-page="home"] .svc-dots{left:auto;right:calc(var(--gutter) - 4px);top:50%;bottom:auto;transform:translateY(-50%);flex-direction:column}
   body[data-page="home"] .svc-dots button,body[data-page="home"] .svc-dots button.active{width:8px}
   body[data-page="home"] .svc-dots button.active{height:34px}

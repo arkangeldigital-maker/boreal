@@ -34,8 +34,9 @@
       ? `<image class="logo-ring" href="${fig('aro-centrado')}" x="${366.8 - ringSize / 2}" y="${237.9 - ringSize / 2}" width="${ringSize}" height="${ringSize}"/>`
       : `<path d="${LOGO.o}"/>`;
     return `<svg class="logo-svg" viewBox="-4 -7 1464 352" role="img" aria-label="Boreal" fill="currentColor" overflow="visible">
-      <path d="${LOGO.b}"/>${o}<path d="${LOGO.r}"/><path d="${LOGO.e}"/><path class="logo-a" d="${LOGO.a}"/>
-      <rect x="1260.745" y="0.772" width="39.773" height="337.104"/>
+      ${ringO ? '<defs><filter id="logo-thin"><feMorphology operator="erode" radius="7"/></filter></defs>' : ''}
+      <g${ringO ? ' filter="url(#logo-thin)"' : ''}><path d="${LOGO.b}"/>${ringO ? '' : o}<path d="${LOGO.r}"/><path d="${LOGO.e}"/><path class="logo-a" d="${LOGO.a}"/>
+      <rect x="1260.745" y="0.772" width="39.773" height="337.104"/></g>${ringO ? o : ''}
       ${mr ? `<text x="1364" y="37" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="50">${mr}</text>` : ''}
     </svg>`;
   };
@@ -308,15 +309,24 @@
     let s0 = 0, max = 0, left = 0, w = 0, h = 0, dx = 0, mode = '';
     const set = m => {
       if (m === mode) return;
+      const prev = mode;
       mode = m;
       const fixed = m === 'fixed';
       ph.hidden = !fixed;
-      ring.classList.toggle('is-fixed', fixed);
+      ring.classList.toggle('is-fixed', fixed && prev === 'before');
       Object.assign(ring.style, fixed
         ? { position: 'fixed', top: `${(innerHeight - h) / 2}px`, left: `${left}px`, width: `${w}px`, margin: '0', translate: '' }
         : { position: '', top: '', left: '', width: '', margin: '', translate: m === 'after' ? `${dx.toFixed(1)}px ${max.toFixed(1)}px` : '' });
-      // celular: entra centrado y, ya fijo, se desliza a la derecha para enmarcar los dots
-      if (fixed && dx) requestAnimationFrame(() => { if (mode === 'fixed') ring.style.left = `${left + dx}px`; });
+      // celular: entra centrado y, ya fijo, se desliza a la derecha para enmarcar los dots;
+      // si viene de abajo ya está a la derecha; al volver arriba regresa al centro deslizándose
+      if (fixed && dx) {
+        if (prev === 'after') ring.style.left = `${left + dx}px`;
+        else requestAnimationFrame(() => { if (mode === 'fixed') ring.style.left = `${left + dx}px`; });
+      }
+      if (m === 'before' && prev === 'fixed' && dx) {
+        ring.style.transition = 'none'; ring.style.translate = `${dx}px 0`;
+        requestAnimationFrame(() => requestAnimationFrame(() => { if (mode !== 'before') return; ring.style.transition = 'translate .9s cubic-bezier(.45,0,.25,1)'; ring.style.translate = ''; }));
+      } else if (m !== 'before') ring.style.transition = '';
     };
     const measure = () => {
       mode = ''; set('before');
