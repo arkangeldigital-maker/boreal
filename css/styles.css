@@ -1486,3 +1486,42 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .sn-gold{left:auto;right:20vw;top:92px;bottom:auto;width:12vw;opacity:.9}
   .sn-teal{left:auto;right:30vw;top:60px;bottom:auto;width:30vw;opacity:.7}
 }
+
+/* ================= Borealízate en celular (según Borealizate-movil.pdf) ================= */
+@media (max-width:820px){
+  /* Hero: Karen en círculo a la izquierda y la cita a su lado */
+  .bhero{padding-top:100px}
+  .bhero__grid{row-gap:26px}
+  .bhero__img{display:grid;grid-template-columns:34vw 1fr;gap:6vw;align-items:center;aspect-ratio:auto;overflow:visible;border-radius:0}
+  .bhero__img img{width:34vw;height:34vw;border-radius:50%;object-position:50% 18%}
+  .bhero__img blockquote{position:static;max-width:none;color:var(--night);text-shadow:none;font-size:clamp(15px,4.2vw,17px)}
+  .bhero h1{font-size:clamp(25px,7vw,30px)}
+  .bhero__ring{right:-26vw;top:-30px;width:56vw}
+  .bz-purple,.bz-teal,.bz-gold{display:none}
+  .bz-red{display:block;left:40vw;right:auto;top:30px;width:20vw}
+
+  /* "Así es cómo acompaño a mis clientes:" alineado a la izquierda */
+  .how__intro{text-align:left}
+  .how__intro p{font-size:clamp(30px,8.4vw,36px)}
+
+  /* Equipo: solo la caja y el botón, sin título ni manos */
+  .team{margin-top:0;padding:50px 0 40px}
+  .team h2,.team__hands{display:none}
+  .team__box{margin-top:0}
+
+  /* Boreal es…: aro cortado a la izquierda y la lista a la derecha, compacto */
+  .is{padding:50px 0}
+  .is__stage{display:none}
+  .is__list{text-align:right;padding-left:26vw}
+  .is__logo .logo-svg{height:50px;margin-right:0}
+  .is__list ul{gap:8px;margin:10px 0 26px}
+  .is__list li b{font-size:24px}
+  .is__list li span,.is__list li .pre{font-size:15px}
+  .is__list li span[style]{font-size:17px!important}
+  .is__list .btn{font-size:12.5px;padding:15px 18px;white-space:nowrap;margin-left:-26vw}
+  .is__figs .fig:not(.is-ring){display:none}
+  .is-ring{left:-34vw;top:20px;width:68vw;transform:none}
+
+  /* Sesión Norte: el prisma flota arriba, lejos del texto */
+  .sn-teal{right:auto;left:42vw;top:22px;width:22vw}
+}
