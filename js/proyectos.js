@@ -97,7 +97,9 @@
     return `--iw:${(k * 100).toFixed(3)}%;--ml:${(-l * k).toFixed(3)}%;--mt:${(-t / 100 * k * ar * 100).toFixed(3)}%;--ar:${(1 / ((b - t) / 100 * k * ar)).toFixed(4)}`;
   };
   const heroFig = p => {
-    const [l, t, w, h] = p.card.box;
+    // la caja se extiende un poco hacia la izquierda, por detrás de la imagen (que es opaca ahí),
+    // para que no quede una línea clara en la unión entre la foto y la caja
+    const [l0, t, w0, h] = p.card.box, l = l0 - 2, w = w0 + 2;
     return `
     <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}${p.mround ? ' pj-hero2--round' : ''}${p.mbleed ? ' pj-hero2--bleed' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
       <div class="pj-card2" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">
