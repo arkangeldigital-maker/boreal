@@ -46,22 +46,22 @@
     { slug: 'aeternum', name: 'Aeternum', fullBleed: true, w: 270, tint: '#a3316a', at: '100% 100%', col: 1,
       services: ['Estrategia digital', 'Maquetación web', 'Diseño y desarrollo web', 'Contenido web', 'SEO y SEM', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Estrategia de campañas en Meta Ads'],
       industry: 'Tecnología Financiera · Blockchain · Criptomonedas', hero: ['aeternum-hero.webp', 943], mcrop: [0.25, 70.25, 2.86, 98.62], mcard: 'sep', gallery: ['aeternum-galeria.webp', 1224], card: { box: [50.139, 18.986, 42.917, 42.453], client: 'Aeternum', industry: 'Tecnología Financiera · Blockchain · Criptomonedas', services: 'Estrategia digital · Maquetación web · Diseño y<br>desarrollo web · Contenido web · SEO y SEM<br>Dirección estratégica de redes sociales (Facebook<br>e Instagram) · Estrategia de campañas en Meta Ads' } },
-    { slug: 'soli-deo-gloria', name: 'Soli Deo Gloria', tall: true, w: 360, tint: '#6c4bb3', at: '100% 100%', col: 2,
+    { slug: 'soli-deo-gloria', fullHero: true, fullBleed: true, name: 'Soli Deo Gloria', tall: true, w: 360, tint: '#6c4bb3', at: '100% 100%', col: 2,
       services: ['Estrategia digital', 'Diseño y desarrollo web', 'Contenido web', 'Fotografía y video', 'SEO y SEM', 'Estrategia publicitaria en Google Ads', 'Diseño de artes publicitarios'],
       industry: 'Construcción · Ventanas y Puertas de PVC', hero: ['soli-deo-gloria-hero.webp', 1954], mcard: 'sep', card: { box: [51.389, 9.613, 41.597, 20.364], client: 'SOLI·DEO GLORIA', industry: 'Construcción · Ventanas y Puertas de PVC', services: 'Estrategia digital · Diseño y desarrollo<br>web · Contenido web · Fotografía y video<br>SEO y SEM · Estrategia publicitaria en<br>Google Ads · Diseño de artes publicitarios' } },
     { slug: 'private-chef-playa', name: 'Private Chef Playa', tall: true, w: 180, tint: '#1aa7a1', at: '0% 100%', col: 1,
       services: ['Dirección estratégica de redes sociales (Facebook e Instagram)', 'Estrategia de contenido', 'Diseño de contenido', 'Community management', 'Campañas en Meta Ads'],
       industry: 'Gastronomía · Turismo', hero: ['private-chef-playa-hero.webp', 2586], mcard: 'sep', card: { box: [58.194, 9.411, 34.861, 15.471], client: 'Private Chef Playa', industry: 'Gastronomía · Turismo', services: 'Dirección estratégica de redes sociales<br>(Facebook e Instagram) · Estrategia de<br>contenido · Diseño de contenido · Community<br>management · Campañas en Meta Ads' } },
-    { slug: 'vitanova', name: 'Vitanova', fullName: 'Vitanova Center Tires', w: 210, tint: '#b08a2e', at: '100% 0%', col: 2, flush: true,
+    { slug: 'vitanova', fullBleed: true, name: 'Vitanova', fullName: 'Vitanova Center Tires', w: 210, tint: '#b08a2e', at: '100% 0%', col: 2, flush: true,
       services: ['Estrategia publicitaria en Meta Ads (Facebook e Instagram)', 'Campañas en Google Ads', 'Diseño de artes publicitarios', 'Dirección estratégica de redes sociales (Facebook, Instagram)'],
       industry: 'Automotriz', hero: ['vitanova-hero.webp', 1537], mcard: 'sep', gallery: ['vitanova-galeria.webp', 1158], card: { box: [41.528, 8.098, 51.389, 22.56], client: 'Vitanova Center Tires', industry: 'Automotriz', services: 'Estrategia publicitaria en Meta Ads (Facebook e Instagram)<br>Campañas en Google Ads · Diseño de artes publicitarios<br>Dirección estratégica de redes sociales (Facebook, Instagram)' } },
     { slug: 'toxre', name: 'Tox&Re', w: 300, tint: '#6c4bb3', at: '100% 100%', col: 1, flush: true,
       services: ['Estrategia publicitaria en Meta Ads (Facebook e Instagram)', 'Campañas en Google Ads', 'Diseño de artes publicitarios', 'Dirección estratégica de redes sociales (Facebook e Instagram)', 'Producción fotográfica y audiovisual'],
       industry: 'Medicina Estética', hero: ['toxre-hero.webp', 789], mcrop: [6.9, 49.5, 3.9, 95.0], mround: true, gallery: ['toxre-galeria.webp', 1070], card: { box: [50.417, 18.592, 42.5, 50.704], client: 'Tox&amp;Re', industry: 'Medicina Estética', services: 'Estrategia publicitaria en Meta Ads (Facebook e<br>Instagram) · Campañas en Google Ads · Diseño<br>de artes publicitarios · Dirección estratégica de<br>redes sociales (Facebook e Instagram) ·<br>Producción fotográfica y audiovisual' } },
-    { slug: 'steakos', name: 'Steakos', tall: true, w: 170, tint: '#a3316a', at: '100% 100%', col: 2, flush: true,
+    { slug: 'steakos', fullHero: true, fullBleed: true, name: 'Steakos', tall: true, w: 170, tint: '#a3316a', at: '100% 100%', col: 2, flush: true,
       services: ['Dirección estratégica de redes sociales (Facebook, Instagram y TikTok)', 'Producción fotográfica y audiovisual', 'Diseño de contenido', 'Gestión de campañas Meta Ads y Amazon Ads', 'Community management'],
       industry: 'Alimentos · Snacks Premium', hero: ['steakos-hero.webp', 1589], mcard: 'sep', mfirst: true, card: { box: [53.611, 11.119, 38.889, 25.175], client: 'Steakos', industry: 'Alimentos · Snacks Premium', services: 'Dirección estratégica de redes sociales<br>(Facebook, Instagram y TikTok) · Producción<br>fotográfica y audiovisual · Diseño de contenido<br>Gestión de campañas Meta Ads y Amazon Ads<br>Community management' } },
-    { slug: 'etp', name: 'ETP', w: 200, tint: '#1aa7a1', at: '100% 100%', col: 1, bg: '#f8f8f8', flush: true,
+    { slug: 'etp', fullHero: true, fullBleed: true, name: 'ETP', w: 200, tint: '#1aa7a1', at: '100% 100%', col: 1, bg: '#f8f8f8', flush: true,
       services: ['Estrategia digital', 'Maquetación, diseño y desarrollo web', 'Contenido web', 'SEO'],
       industry: 'Transporte y logística', hero: ['etp-hero.webp', 721], mcrop: [0, 56.19, 4.16, 97.78], mbleed: true, mcard: 'sep', gallery: ['etp-galeria.webp', 1814], card: { box: [45.139, 19.877, 47.778, 55.778], client: 'ETP', industry: 'Transporte y logística', services: 'Estrategia digital • Maquetación, diseño y<br>desarrollo web • Contenido web • SEO' } },
   ];
@@ -101,7 +101,7 @@
     // para que no quede una línea clara en la unión entre la foto y la caja
     const [l0, t, w0, h] = p.card.box, l = l0 - 2, w = w0 + 2;
     return `
-    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}${p.mround ? ' pj-hero2--round' : ''}${p.mbleed ? ' pj-hero2--bleed' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
+    <figure class="pj-hero2${p.mcrop ? ' pj-hero2--crop' : ''}${p.mround ? ' pj-hero2--round' : ''}${p.mbleed ? ' pj-hero2--bleed' : ''}${p.fullHero ? ' pj-hero2--full' : ''}"${p.mcrop ? ` style="${crop(p)}"` : ''}>
       <div class="pj-card2" style="left:${l}%;top:${t}%;width:${w}%;height:${h}%">
         <div class="pj-card2__txt">
           <small>Cliente</small><p>${p.card.client}</p>

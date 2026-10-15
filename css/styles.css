@@ -1365,7 +1365,7 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
    se escalan para que ese rango coincida con el contenedor y los textos queden alineados con ellas */
 @media (min-width:821px){
   .pj-case{overflow-x:clip}
-  .pj-hero2,.pj-shot:not(.pj-shot--full){--cw:min(100% - 2 * var(--gutter), var(--max));width:calc(var(--cw) / .87);max-width:none;margin-left:calc((100% - var(--cw)) / 2 - var(--cw) / .87 * .06);margin-right:0}
+  .pj-hero2:not(.pj-hero2--full),.pj-shot:not(.pj-shot--full){--cw:min(100% - 2 * var(--gutter), var(--max));width:calc(var(--cw) / .87);max-width:none;margin-left:calc((100% - var(--cw)) / 2 - var(--cw) / .87 * .06);margin-right:0}
 }
 /* Steakos (celular): primero la ficha morada y debajo las imágenes */
 @media (max-width:820px){
@@ -1542,3 +1542,4 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 }
 /* Borealízate (celular): el botón verde del equipo envuelve su texto con aire si no cabe en un renglón */
 @media (max-width:820px){.team .btn{white-space:normal;max-width:100%;padding:15px 22px;font-size:14px;line-height:1.25;text-align:left;gap:12px}}
+@media (min-width:821px){.pj-hero2--full{max-width:none;width:100%;margin:0}}
