@@ -1543,3 +1543,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 /* Borealízate (celular): el botón verde del equipo envuelve su texto con aire si no cabe en un renglón */
 @media (max-width:820px){.team .btn{white-space:normal;max-width:100%;padding:15px 22px;font-size:14px;line-height:1.25;text-align:left;gap:12px}}
 @media (min-width:821px){.pj-hero2--full{max-width:none;width:100%;margin:0}}
+/* Borealízate (escritorio): prisma verde del hero más chico, arriba y casi sin desplazarse, para no tapar el título */
+@media (min-width:821px){.bz-teal{left:auto;right:12vw;top:calc(68px - 4vw);width:15vw}}
