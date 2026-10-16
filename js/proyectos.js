@@ -183,7 +183,10 @@
   const updateFab = () => {
     const open = document.body.classList.contains('pj-open');
     const r = open && detail.getBoundingClientRect();
-    fab.classList.toggle('on', !!open && r.top < -150 && r.bottom > 80);
+    // se oculta cuando la fila de navegación del final ya está en pantalla, para no taparle las flechas
+    const row = open && detail.querySelector('.pj-totop-row');
+    const rowVisible = row && row.getBoundingClientRect().top < innerHeight;
+    fab.classList.toggle('on', !!open && r.top < -150 && r.bottom > 80 && !rowVisible);
   };
   addEventListener('scroll', updateFab, { passive: true });
   addEventListener('resize', updateFab);
