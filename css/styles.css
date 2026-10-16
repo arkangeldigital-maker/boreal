@@ -1545,3 +1545,11 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (min-width:821px){.pj-hero2--full{max-width:none;width:100%;margin:0}}
 /* Borealízate (escritorio): prisma verde del hero más chico, arriba y casi sin desplazarse, para no tapar el título */
 @media (min-width:821px){.bz-teal{left:auto;right:12vw;top:calc(68px - 4vw);width:15vw}}
+/* Proyectos: flechas al proyecto anterior / siguiente junto a "Volver al inicio del proyecto" */
+.pj-totop-row{align-items:center;gap:clamp(12px,2vw,24px)}
+.pj-case--flush .pj-totop-row{padding-bottom:clamp(30px,3vw,44px)}
+.pj-nav{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--night);color:#fff;transition:background .3s,color .3s,transform .4s var(--ease)}
+.pj-nav svg{width:20px;height:20px}
+.pj-nav:hover{background:var(--gold);color:#000}
+.pj-nav--prev:hover{transform:translateX(-3px)}.pj-nav--next:hover{transform:translateX(3px)}
+.pj-nav--empty{visibility:hidden}

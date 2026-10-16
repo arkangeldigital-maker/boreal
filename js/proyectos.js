@@ -122,7 +122,14 @@
       <small>Servicios</small><p>${p.services.join(' · ')}</p>
     </aside>`;
   const upIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
-  const toTop = `<div class="container pj-totop-row"><button type="button" class="pj-totop-link" data-totop>${upIcon}<span>Volver al inicio del proyecto</span></button></div>`;
+  // fila final del caso: proyecto anterior · volver al inicio · proyecto siguiente (las flechas solo si existen)
+  const toTop = p => {
+    const i = PROJECTS.indexOf(p), prev = PROJECTS[i - 1], next = PROJECTS[i + 1];
+    const nav = (q, dir) => q
+      ? `<a class="pj-nav pj-nav--${dir}" href="#${q.slug}" data-slug="${q.slug}" aria-label="${dir === 'prev' ? 'Proyecto anterior' : 'Siguiente proyecto'}: ${q.name}" title="${q.name}">${dir === 'prev' ? arrowL : arrowR}</a>`
+      : '<span class="pj-nav pj-nav--empty" aria-hidden="true"></span>';
+    return `<div class="container pj-totop-row">${nav(prev, 'prev')}<button type="button" class="pj-totop-link" data-totop>${upIcon}<span>Volver al inicio del proyecto</span></button>${nav(next, 'next')}</div>`;
+  };
 
   const renderDetail = p => {
     const banner = `
@@ -139,7 +146,7 @@
         <div class="pj-anim">${heroFig(p)}</div>
         <div class="container${p.mcard === 'sep' ? ' pj-info-sep' : ''}">${info(p)}</div>
         ${p.gallery ? `<div class="pj-anim">${shot(p, p.gallery, p.fullBleed ? 'pj-shot--full' : '')}</div>` : ''}
-        ${p.flush ? '' : toTop}
+        ${toTop(p)}
       </section>`;
     } else {
       body = `
@@ -164,7 +171,7 @@
         </div>
         <div class="pj-anim pj-wide">${shot(p, p.wide)}</div>
         <div class="container"><div class="pj-result pj-anim"><p class="pj-label">El resultado</p><h2>${p.result}</h2></div></div>
-        ${toTop}
+        ${toTop(p)}
       </section>`;
     }
     detail.innerHTML = banner + body;
