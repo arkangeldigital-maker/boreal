@@ -1553,3 +1553,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .pj-nav:hover{background:var(--gold);color:#000}
 .pj-nav--prev:hover{transform:translateX(-3px)}.pj-nav--next:hover{transform:translateX(3px)}
 .pj-nav--empty{visibility:hidden}
+/* Flechas anterior/siguiente con el mismo estilo que "Volver al inicio del proyecto" */
+.pj-nav{background:#fff;color:var(--night);border:1.5px solid #d9d4e8}
+.pj-nav:hover{background:var(--gold);border-color:var(--gold);color:var(--night)}
