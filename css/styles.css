@@ -1318,7 +1318,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .pj-totop-row{display:flex;justify-content:center;padding-top:clamp(30px,3vw,44px)}
 .pj-totop-link{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:40px;border:1.5px solid #d9d4e8;background:#fff;color:var(--night);font:600 15px/1 var(--head);cursor:pointer;transition:background .3s,border-color .3s,transform .4s var(--ease)}
 .pj-totop-link svg{width:18px;height:18px}
-.pj-totop-link:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
 .pj-totop{position:fixed;right:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px);z-index:40;width:54px;height:54px;border-radius:50%;border:0;background:var(--gold);color:#000;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .4s,transform .5s var(--ease)}
 .pj-totop svg{width:22px;height:22px}
 .pj-totop.on{opacity:1;transform:none;pointer-events:auto}
@@ -1550,9 +1549,13 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 .pj-case--flush .pj-totop-row{padding-bottom:clamp(30px,3vw,44px)}
 .pj-nav{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--night);color:#fff;transition:background .3s,color .3s,transform .4s var(--ease)}
 .pj-nav svg{width:20px;height:20px}
-.pj-nav:hover{background:var(--gold);color:#000}
-.pj-nav--prev:hover{transform:translateX(-3px)}.pj-nav--next:hover{transform:translateX(3px)}
 .pj-nav--empty{visibility:hidden}
 /* Flechas anterior/siguiente con el mismo estilo que "Volver al inicio del proyecto" */
 .pj-nav{background:#fff;color:var(--night);border:1.5px solid #d9d4e8}
-.pj-nav:hover{background:var(--gold);border-color:var(--gold);color:var(--night)}
+/* Hover de las flechas y del botón de volver solo en equipos con mouse: en celular el primer toque ya navega */
+.pj-nav,.pj-totop-link{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media (hover:hover) and (pointer:fine){
+  .pj-nav:hover,.pj-totop-link:hover{background:var(--gold);border-color:var(--gold);color:var(--night)}
+  .pj-nav--prev:hover{transform:translateX(-3px)}.pj-nav--next:hover{transform:translateX(3px)}
+  .pj-totop-link:hover{transform:translateY(-2px)}
+}

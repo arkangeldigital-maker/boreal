@@ -126,7 +126,7 @@
   const toTop = p => {
     const i = PROJECTS.indexOf(p), prev = PROJECTS[i - 1], next = PROJECTS[i + 1];
     const nav = (q, dir) => q
-      ? `<a class="pj-nav pj-nav--${dir}" href="#${q.slug}" data-slug="${q.slug}" aria-label="${dir === 'prev' ? 'Proyecto anterior' : 'Siguiente proyecto'}: ${q.name}" title="${q.name}">${dir === 'prev' ? arrowL : arrowR}</a>`
+      ? `<a class="pj-nav pj-nav--${dir}" href="#${q.slug}" data-slug="${q.slug}" aria-label="${dir === 'prev' ? 'Proyecto anterior' : 'Siguiente proyecto'}: ${q.name}">${dir === 'prev' ? arrowL : arrowR}</a>`
       : '<span class="pj-nav pj-nav--empty" aria-hidden="true"></span>';
     return `<div class="container pj-totop-row">${nav(prev, 'prev')}<button type="button" class="pj-totop-link" data-totop>${upIcon}<span>Volver al inicio del proyecto</span></button>${nav(next, 'next')}</div>`;
   };
