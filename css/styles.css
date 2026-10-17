@@ -1597,3 +1597,13 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   body[data-page="home"] .svc-intro.is-on .svc-intro__row p{opacity:0;transform:translateY(-10px)}
   body[data-page="home"] .svc-intro.is-on h2{transform:translate(calc((100% - var(--h2w)) / -2), 40px)}
 }
+/* Home (celular): "Servicios" se queda fijo arriba mientras pasan los servicios (empuja un poco el texto)
+   y los dots se centran dentro del aro, que no se mueve de lado */
+.svc-sticky__title{display:none}
+@media (max-width:820px){
+  body[data-page="home"] .svc-sticky__title{display:block;position:absolute;left:var(--gutter);top:84px;z-index:3;margin:0;font:900 clamp(40px,12vw,52px)/1 var(--head);letter-spacing:-.04em;color:var(--night);opacity:0;transform:translateY(-14px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+  body[data-page="home"] .svc-scroll.is-on .svc-sticky__title{opacity:1;transform:none}
+  body[data-page="home"] .svc-intro.is-on h2{transform:none;opacity:0;transition:opacity .4s}
+  body[data-page="home"] .svc-stage{padding-top:60px}
+  body[data-page="home"] .svc-dots{right:calc(14vw - 4px)}
+}
