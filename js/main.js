@@ -71,18 +71,8 @@
   };
   const socials = `<div class="socials"><a href="https://www.instagram.com/borealmd/" target="_blank" rel="noopener" aria-label="Instagram">${ico.ig}</a><a href="https://www.linkedin.com/company/boreal-marketing-digital/" target="_blank" rel="noopener" aria-label="LinkedIn">${ico.in}</a><a href="https://www.facebook.com/borealmarketingdigital" target="_blank" rel="noopener" aria-label="Facebook">${ico.fb}</a></div>`;
   // Logotipo Brandtonic redibujado en SVG (trazos finos, A sin travesaño con remate curvo)
-  const brandtonic = `<svg class="brandtonic" viewBox="-4 -4 680 108" role="img" aria-label="Brandtonic" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter">
-      <path d="M6 2V98M6 2H30C54 2 54 48 30 48H6M6 48H34C64 48 64 98 34 98H6"/>
-      <path d="M72 2V98M72 2H94C118 2 118 50 94 50H72M92 50L126 98"/>
-      <path d="M152 2L128 88M152 2L186 98M114 78C132 104 164 106 180 86"/>
-      <path d="M196 98V2L248 98V2"/>
-      <path d="M262 2V98H282C334 98 334 2 282 2H262"/>
-      <path d="M322 2H392M357 2V98"/>
-      <ellipse cx="433" cy="50" rx="41" ry="48"/>
-      <path d="M490 98V2L544 98V2"/>
-      <path d="M568 2V98"/>
-      <path d="M668 20C654 -2 598 -4 598 50C598 104 654 102 668 80"/>
-    </svg>`;
+  // Logo de Brandtonic (tomado de brandtonic.mx), en blanco
+  const brandtonic = `<img class="brandtonic" src="${fig('brandtonic')}" alt="Brandtonic Estudio" width="257" height="73">`;
   const sinergia = `<p class="sinergia">EN SINERGIA CON <a class="brandtonic-link" href="https://www.instagram.com/brandtonicestudio/" target="_blank" rel="noopener" aria-label="Brandtonic en Instagram">${brandtonic}</a></p>`;
   const isContact = page === 'contacto';
 

@@ -1572,3 +1572,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (min-width:821px){
   .svc-intro__row .svc-intro__ring .svc-intro__in{position:absolute;inset:0;margin:auto;width:44%;height:max-content;text-align:center;font-weight:500;font-size:calc(clamp(220px,35.6vw,540px) * .05);line-height:1.15}
 }
+/* Logo de Brandtonic (imagen) junto a "En sinergia con" */
+.brandtonic{height:30px;width:auto;display:block}
+.sinergia{gap:12px}
