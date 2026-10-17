@@ -1575,3 +1575,9 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 /* Logo de Brandtonic (imagen) junto a "En sinergia con" */
 .brandtonic{height:30px;width:auto;display:block}
 .sinergia{gap:12px}
+/* Sesión Norte (escritorio): foto de Karen 50% más ancha; el texto se acomoda para terminar donde empieza el desvanecido */
+@media (min-width:1025px){
+  .what__img{width:42.5vw;z-index:0}
+  .what__grid{position:relative;z-index:1}
+  .what__grid{grid-template-columns:minmax(0,355px) minmax(0,min(563px, calc(100vw - 42.5vw * .6 - var(--gutter) - 355px - 16px - max(0px, (100vw - var(--max)) / 2 - var(--gutter)))))}
+}
