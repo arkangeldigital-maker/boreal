@@ -377,6 +377,8 @@
       current = step;
       items.forEach((it, k) => { it.classList.toggle('shown', k <= step); it.classList.toggle('active', k === step); });
       prism?.classList.toggle('shown', step === n - 1);
+      // escritorio: la frase dentro del aro se oculta mientras se ven los servicios
+      document.querySelector('.svc-intro__ring')?.classList.toggle('txt-off', step >= 0);
       dots.forEach((d, k) => d.classList.toggle('active', k === Math.max(0, step)));
     };
     dots.forEach((d, k) => d.addEventListener('click', () => {

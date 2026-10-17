@@ -1559,3 +1559,16 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .pj-nav--prev:hover{transform:translateX(-3px)}.pj-nav--next:hover{transform:translateX(3px)}
   .pj-totop-link:hover{transform:translateY(-2px)}
 }
+/* Home (escritorio): "Potencia tu presencia digital con" va dentro del aro, centrada; se oculta al aparecer el servicio 01 */
+.svc-intro__in{display:none}
+@media (min-width:821px){
+  .svc-intro__row>p{display:none}
+  .svc-intro__row{grid-template-columns:1fr}
+  .svc-intro__ring{justify-self:center}
+  .svc-intro__in{display:block;position:absolute;inset:0;margin:auto;width:42%;height:max-content;text-align:center;font:500 calc(clamp(220px,35.6vw,540px) * .052)/1.15 var(--head);color:var(--teal);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .svc-intro__in b{font-weight:800;display:block}
+  .svc-intro__ring.txt-off .svc-intro__in{opacity:0;transform:scale(.92)}
+}
+@media (min-width:821px){
+  .svc-intro__row .svc-intro__ring .svc-intro__in{position:absolute;inset:0;margin:auto;width:44%;height:max-content;text-align:center;font-weight:500;font-size:calc(clamp(220px,35.6vw,540px) * .05);line-height:1.15}
+}
