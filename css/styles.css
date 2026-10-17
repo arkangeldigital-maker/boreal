@@ -1616,3 +1616,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   body[data-page="home"] .svc-dots button{height:6px}
   body[data-page="home"] .svc-dots button.active{height:24px}
 }
+/* Home (celular): texto de los botones de Sesión Norte centrado */
+@media (max-width:820px){body[data-page="home"] a.btn[href^="sesion-norte"]{justify-content:center;text-align:center}}
