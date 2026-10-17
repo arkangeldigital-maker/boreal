@@ -1622,3 +1622,10 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (max-width:820px){.info .ticks li::before{content:none}}
 /* Proyectos (celular): el proyecto abierto en su lugar de la lista ocupa todo el ancho */
 @media (max-width:820px){.pj-col>#pj-detail{margin-inline:calc(var(--gutter) * -1)}.pj-col>#pj-detail .pj-case{margin-top:18px}}
+/* Proyectos (celular): la tarjeta abierta funciona como encabezado; su flecha apunta hacia atrás */
+@media (max-width:820px){
+  .pj-card.is-open{border-color:rgba(255,255,255,.35)}
+  .pj-card.is-open .pj-card__arrow{transform:rotate(180deg);background:var(--gold);color:#000}
+  .pj-card.is-open .pj-card__svc{display:none}
+  .pj-card.is-open.pj-card--tall{min-height:0}
+}

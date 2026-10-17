@@ -7,6 +7,7 @@
    ========================================================= */
 (() => {
   const P = 'assets/proyectos/';
+  const mqMobile = matchMedia('(max-width: 820px)');
   // tint: color del resplandor dentro de la tarjeta · at: posición del resplandor · w: ancho del logo (px a 1440)
   // hero/gallery: [archivo, alto] (1600 px de ancho) · card.box: posición de la ficha del cliente en % del hero (izq, arriba, ancho, alto) · bg: fondo del caso
   const PROJECTS = [
@@ -174,7 +175,8 @@
         ${toTop(p)}
       </section>`;
     }
-    detail.innerHTML = banner + body;
+    // en celular la tarjeta de la lista hace de encabezado (no se repite el banner)
+    detail.innerHTML = (mqMobile.matches ? '' : banner) + body;
   };
 
   // botón flotante para volver al inicio del proyecto abierto
@@ -194,7 +196,6 @@
 
   // En celular el proyecto se abre en su mismo lugar de la lista (sin reordenar) y al cerrarlo
   // se vuelve a esa misma tarjeta; en escritorio se abre arriba de la lista, como antes
-  const mqMobile = matchMedia('(max-width: 820px)');
   const detailHome = document.createComment('pj-detail');
   detail.before(detailHome);
   let lastSlug = null, lastTop = 90;
@@ -202,18 +203,22 @@
     const p = PROJECTS.find(x => x.slug === slug);
     const mobile = mqMobile.matches;
     // posición en pantalla de la tarjeta que se abre, para regresar ahí al cerrar
-    if (p && mobile) { const c0 = grid.querySelector(`[data-slug="${p.slug}"]`); if (c0 && !c0.hidden) lastTop = Math.max(90, c0.getBoundingClientRect().top); }
+    if (p && mobile) { const c0 = grid.querySelector(`[data-slug="${p.slug}"]`); if (c0) lastTop = Math.max(90, c0.getBoundingClientRect().top); }
     document.body.classList.toggle('pj-open', !!p);
     detailHome.after(detail);
     if (p) {
       renderDetail(p); renderGrid(mobile ? null : p.slug);
-      if (mobile) { const c = grid.querySelector(`[data-slug="${p.slug}"]`); if (c) { c.after(detail); c.hidden = true; } }
+      if (mobile) {
+        const c = grid.querySelector(`[data-slug="${p.slug}"]`);
+        // la misma tarjeta se convierte en el encabezado del proyecto abierto; tocarla lo cierra
+        if (c) { c.after(detail); c.classList.add('is-open'); c.removeAttribute('data-slug'); c.setAttribute('data-back', ''); c.setAttribute('aria-label', `Cerrar ${p.name}`); }
+      }
       document.title = `${p.name} · Proyectos · Boreal`;
     } else { detail.innerHTML = ''; renderGrid(null); document.title = 'Proyectos · Boreal Marketing Digital'; }
     updateFab();
     if (scroll) {
       let top = 0;
-      if (p) top = detail.getBoundingClientRect().top + scrollY - (mobile ? 80 : 110);
+      if (p) top = (mobile ? (detail.previousElementSibling || detail) : detail).getBoundingClientRect().top + scrollY - (mobile ? 90 : 110);
       else if (mobile && lastSlug) { const c = grid.querySelector(`[data-slug="${lastSlug}"]`); if (c) top = c.getBoundingClientRect().top + scrollY - lastTop; }
       window.scrollTo({ top, behavior: mobile && !p ? 'auto' : 'smooth' });
     }
