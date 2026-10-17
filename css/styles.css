@@ -1586,3 +1586,14 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (min-width:1600px){.what__img img{scale:1.15;object-position:70% 25%}}
 /* Servicios (celular): aro del hero semitransparente para que el título amarillo se lea */
 @media (max-width:820px){body[data-page="servicios"] .phero__ring{opacity:.4}body[data-page="servicios"] .phero__ring.reveal.in{opacity:.4}}
+/* Home (celular): frase verde a la izquierda y el aro ya a la derecha (al bajar solo baja, sin moverse a los lados);
+   al entrar a los servicios la frase se desvanece y "Servicios" baja un poco y se alinea a la izquierda */
+@media (max-width:820px){
+  body[data-page="home"] .svc-intro h2{transition:transform .8s var(--ease)}
+  body[data-page="home"] .svc-intro__row{grid-template-columns:1fr auto;align-items:center;margin-top:8px}
+  body[data-page="home"] .svc-intro__row p,body[data-page="home"] .svc-intro__row p:first-child{text-align:left;white-space:normal;font-size:clamp(22px,6.4vw,28px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  body[data-page="home"] .svc-intro__ring,body[data-page="home"] .svc-intro__ph{order:0;justify-self:end;margin:0 calc(var(--gutter) * -1 - 9vw) 0 0;width:46vw}
+  body[data-page="home"] .svc-intro__ring.is-fixed{transition:none}
+  body[data-page="home"] .svc-intro.is-on .svc-intro__row p{opacity:0;transform:translateY(-10px)}
+  body[data-page="home"] .svc-intro.is-on h2{transform:translate(calc((100% - var(--h2w)) / -2), 40px)}
+}

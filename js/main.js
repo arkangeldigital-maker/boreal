@@ -336,6 +336,8 @@
       const dots = document.querySelector('.svc-dots');
       dx = 0;
       if (mobile && dots) { const d = dots.getBoundingClientRect(); dx = d.left + d.width / 2 - w / 2 - left; }
+      // ancho del título para alinearlo a la izquierda en celular
+      const h2 = document.querySelector('.svc-intro h2'); if (h2) { const rg = document.createRange(); rg.selectNodeContents(h2); h2.style.setProperty('--h2w', `${rg.getBoundingClientRect().width}px`); }
     };
     const update = () => {
       const t = scrollY - s0;
@@ -369,6 +371,8 @@
       prism?.classList.toggle('shown', step === n - 1);
       // escritorio: la frase dentro del aro se oculta mientras se ven los servicios
       document.querySelector('.svc-intro__ring')?.classList.toggle('txt-off', step >= 0);
+      // celular: al entrar a los servicios se oculta la frase verde y "Servicios" se acomoda a la izquierda
+      document.querySelector('.svc-intro')?.classList.toggle('is-on', step >= 0);
       dots.forEach((d, k) => d.classList.toggle('active', k === Math.max(0, step)));
     };
     dots.forEach((d, k) => d.addEventListener('click', () => {
