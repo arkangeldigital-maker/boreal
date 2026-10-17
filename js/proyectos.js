@@ -125,7 +125,9 @@
   const upIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
   // fila final del caso: proyecto anterior · volver al inicio · proyecto siguiente (las flechas solo si existen)
   const toTop = p => {
-    const i = PROJECTS.indexOf(p), prev = PROJECTS[i - 1], next = PROJECTS[i + 1];
+    // en celular el orden es el de la lista vertical (primera columna y luego la segunda)
+    const order = mqMobile.matches ? [...PROJECTS.filter(x => x.col === 1), ...PROJECTS.filter(x => x.col === 2)] : PROJECTS;
+    const i = order.indexOf(p), prev = order[i - 1], next = order[i + 1];
     const nav = (q, dir) => q
       ? `<a class="pj-nav pj-nav--${dir}" href="#${q.slug}" data-slug="${q.slug}" aria-label="${dir === 'prev' ? 'Proyecto anterior' : 'Siguiente proyecto'}: ${q.name}">${dir === 'prev' ? arrowL : arrowR}</a>`
       : '<span class="pj-nav pj-nav--empty" aria-hidden="true"></span>';

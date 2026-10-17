@@ -1631,3 +1631,4 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 }
 /* Proyectos (celular): en la tarjeta abierta el logo se ve más chico */
 @media (max-width:820px){.pj-card.is-open .pj-logo{width:min(calc(var(--lw) * .55),48%);transform:none}.pj-card.is-open{min-height:0;padding-block:18px}}
+@media (max-width:820px){.pj-card.is-open .pj-card__arrow{width:38px;top:50%;transform:translateY(-50%) rotate(180deg)}}
