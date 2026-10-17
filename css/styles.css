@@ -1584,3 +1584,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 /* Sesión Norte (escritorio): Karen 50% más grande y más centrada en su recuadro, con la cabeza completa */
 @media (min-width:1025px){.what__img{overflow:hidden}.what__img img{scale:1.5;transform-origin:100% 55%}}
 @media (min-width:1600px){.what__img img{scale:1.15;object-position:70% 25%}}
+/* Servicios (celular): aro del hero semitransparente para que el título amarillo se lea */
+@media (max-width:820px){body[data-page="servicios"] .phero__ring{opacity:.4}body[data-page="servicios"] .phero__ring.reveal.in{opacity:.4}}
