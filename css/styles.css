@@ -1581,3 +1581,6 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   .what__grid{position:relative;z-index:1}
   .what__grid{grid-template-columns:minmax(0,355px) minmax(0,min(563px, calc(100vw - 42.5vw * .6 - var(--gutter) - 355px - 16px - max(0px, (100vw - var(--max)) / 2 - var(--gutter)))))}
 }
+/* Sesión Norte (escritorio): Karen 50% más grande y más centrada en su recuadro, con la cabeza completa */
+@media (min-width:1025px){.what__img{overflow:hidden}.what__img img{scale:1.5;transform-origin:100% 55%}}
+@media (min-width:1600px){.what__img img{scale:1.15;object-position:70% 25%}}
