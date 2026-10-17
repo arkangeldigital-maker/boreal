@@ -1607,3 +1607,12 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
   body[data-page="home"] .svc-stage{padding-top:60px}
   body[data-page="home"] .svc-dots{right:calc(14vw - 4px)}
 }
+/* Home (celular): más aire entre "Servicios" fijo y los servicios; aro más a la derecha y dots más chicos dentro de él */
+@media (max-width:820px){
+  body[data-page="home"] .svc-stage .svc-item{top:calc(12% + 100px)}
+  body[data-page="home"] .svc-intro__ring,body[data-page="home"] .svc-intro__ph{margin-right:calc(var(--gutter) * -1 - 16vw)}
+  body[data-page="home"] .svc-dots{right:calc(7vw - 3px);gap:9px}
+  body[data-page="home"] .svc-dots button,body[data-page="home"] .svc-dots button.active{width:6px}
+  body[data-page="home"] .svc-dots button{height:6px}
+  body[data-page="home"] .svc-dots button.active{height:24px}
+}
