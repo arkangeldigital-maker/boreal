@@ -511,7 +511,7 @@
         const f = Object.assign(document.createElement('form'), { method: 'POST', action: destino, target: 'fs-frame', hidden: true });
         const campos = {
           _subject: 'Nueva solicitud desde el sitio de Boreal - ' + (datos.servicio || ''),
-          _template: 'table', _captcha: 'false', _honey: datos.sitio_web || '',
+          _template: 'table', _captcha: 'false', _honey: datos.sitio_web || '', _cc: form.dataset.cc || '',
           Nombre: datos.nombre, Empresa: datos.empresa || '-', Servicio: datos.servicio,
           email: datos.correo, Celular: datos.celular, Aviso_de_privacidad: 'Aceptado',
         };

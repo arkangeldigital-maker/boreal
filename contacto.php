@@ -6,7 +6,8 @@
  */
 
 // ---- Configuración ----
-const DESTINO = 'hola@borealmarketing.mx';
+// Destinatarios de las solicitudes (separados por coma, como los acepta mail())
+const DESTINO = 'K.santiago@borealmarketing.mx, Karenmkt.santiago@hotmail.com, M.sanchez@borealmarketing.mx';
 const ASUNTO  = 'Nueva solicitud desde el sitio de Boreal';
 
 header('Content-Type: application/json; charset=utf-8');
