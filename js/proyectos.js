@@ -192,17 +192,34 @@
   addEventListener('resize', updateFab);
   const toProjectTop = () => window.scrollTo({ top: detail.getBoundingClientRect().top + scrollY - 110, behavior: 'smooth' });
 
+  // En celular el proyecto se abre en su mismo lugar de la lista (sin reordenar) y al cerrarlo
+  // se vuelve a esa misma tarjeta; en escritorio se abre arriba de la lista, como antes
+  const mqMobile = matchMedia('(max-width: 820px)');
+  const detailHome = document.createComment('pj-detail');
+  detail.before(detailHome);
+  let lastSlug = null, lastTop = 90;
   const show = (slug, scroll) => {
     const p = PROJECTS.find(x => x.slug === slug);
+    const mobile = mqMobile.matches;
+    // posición en pantalla de la tarjeta que se abre, para regresar ahí al cerrar
+    if (p && mobile) { const c0 = grid.querySelector(`[data-slug="${p.slug}"]`); if (c0 && !c0.hidden) lastTop = Math.max(90, c0.getBoundingClientRect().top); }
     document.body.classList.toggle('pj-open', !!p);
-    if (p) { renderDetail(p); renderGrid(p.slug); document.title = `${p.name} · Proyectos · Boreal`; }
-    else { detail.innerHTML = ''; renderGrid(null); document.title = 'Proyectos · Boreal Marketing Digital'; }
+    detailHome.after(detail);
+    if (p) {
+      renderDetail(p); renderGrid(mobile ? null : p.slug);
+      if (mobile) { const c = grid.querySelector(`[data-slug="${p.slug}"]`); if (c) { c.after(detail); c.hidden = true; } }
+      document.title = `${p.name} · Proyectos · Boreal`;
+    } else { detail.innerHTML = ''; renderGrid(null); document.title = 'Proyectos · Boreal Marketing Digital'; }
     updateFab();
     if (scroll) {
-      const target = p ? detail : document.querySelector('.pj-hero-sec');
-      window.scrollTo({ top: p ? target.getBoundingClientRect().top + scrollY - 110 : 0, behavior: 'smooth' });
+      let top = 0;
+      if (p) top = detail.getBoundingClientRect().top + scrollY - (mobile ? 80 : 110);
+      else if (mobile && lastSlug) { const c = grid.querySelector(`[data-slug="${lastSlug}"]`); if (c) top = c.getBoundingClientRect().top + scrollY - lastTop; }
+      window.scrollTo({ top, behavior: mobile && !p ? 'auto' : 'smooth' });
     }
+    lastSlug = p ? p.slug : null;
   };
+
 
   document.addEventListener('click', e => {
     const c = e.target.closest('[data-slug]');
