@@ -8,13 +8,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-55ZZ7DF');</script>
 <!-- End Google Tag Manager -->
+<script>/* Pantallas de más de 1920 px: todo el sitio escala en proporción (se diseña a 1920 y se amplía) */
+(function(){var r=document.documentElement;function f(){var z=Math.max(1,innerWidth/1920);r.style.zoom=z>1?z:'';r.style.setProperty('--z',z);r.classList.toggle('wide',z>1)}f();addEventListener('resize',f)})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Servicios · Boreal Marketing Digital</title>
 <meta name="description" content="Método Boreal: claridad, arquitectura de marca, lanzamiento y escalamiento. Consultoría, lanzamiento integral, mentorías, diseño web, campañas y redes sociales.">
 <meta name="theme-color" content="#221a3d">
 <link rel="icon" href="assets/fig/fullcolor.webp">
-<link rel="stylesheet" href="css/styles.css?v=202610171035">
+<link rel="stylesheet" href="css/styles.css?v=202610180956">
 <!-- precarga de fotos para que no aparezcan de golpe al hacer scroll -->
 <link rel="preload" as="image" href="assets/img/serv-norte.webp">
 <link rel="preload" as="image" href="assets/img/serv-blueprint.webp">
@@ -96,7 +98,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="split2" id="blueprint" style="margin-top:clamp(60px,8vw,110px)">
+      <div class="split2" id="blueprint" style="margin-top:clamp(60px,calc(8 * var(--vw)),110px)">
         <div class="info">
           <h4 class="reveal">Blueprint Boreal</h4>
           <div class="reveal" style="--d:.1s">
@@ -119,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 02 -->
   <section class="block" id="lanzamiento">
-    <div class="fig" style="right:6%;top:60px;width:clamp(140px,16vw,230px)" data-speed=".25"><img class="float" style="--r:-25deg" src="assets/fig/5.webp" alt=""></div>
+    <div class="fig" style="right:6%;top:60px;width:clamp(140px,calc(16 * var(--vw)),230px)" data-speed=".25"><img class="float" style="--r:-25deg" src="assets/fig/5.webp" alt=""></div>
     <div class="container">
       <div class="block__title reveal"><span class="block__num c-teal">02</span><h3 class="c-coral">Lanzamiento integral<br>de marca y producto</h3></div>
       <div class="split2">
@@ -180,7 +182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="action__text reveal" style="--d:.1s">Convertimos la estrategia en acciones concretas, integrando las <b>soluciones digitales que cada proyecto necesita</b> para avanzar, posicionarse y crecer.</p>
     </div>
   </section>
-  <section class="section" style="padding-top:clamp(50px,6.7vw,96px)">
+  <section class="section" style="padding-top:clamp(50px,calc(6.7 * var(--vw)),96px)">
     <div class="container tiles">
       <a href="contacto?servicio=web" class="tile reveal" style="--tint:#0e4a3d"><img src="assets/img/serv-web.webp" alt="" decoding="async"><div class="tile__body"><div><h4>Diseño web profesional</h4><p>Experiencias digitales diseñadas para comunicar, posicionar y convertir.</p></div><span class="arr">→</span></div></a>
       <a href="contacto?servicio=campanas" class="tile reveal" style="--tint:#7a2140"><img src="assets/img/serv-campanas.webp" alt="" decoding="async"><div class="tile__body"><div><h4>Gestión de campañas digitales</h4><p>Meta Ads, TikTok Ads, Google Ads, Amazon Ads y Mercado Libre Ads para generar demanda y oportunidades de negocio.</p></div><span class="arr">→</span></div></a>
@@ -225,6 +227,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 </main>
 
-<script src="js/main.js?v=202610171035"></script>
+<script src="js/main.js?v=202610180956"></script>
 </body>
 </html>

@@ -297,6 +297,8 @@
     ph.className = 'svc-intro__ph'; ph.hidden = true;
     ring.after(ph);
     let s0 = 0, max = 0, left = 0, w = 0, h = 0, dx = 0, mode = '';
+    // pantallas > 1920 px: la página está escalada con zoom; las medidas de getBoundingClientRect vienen escaladas
+    const Z = () => parseFloat(document.documentElement.style.zoom) || 1;
     const set = m => {
       if (m === mode) return;
       const prev = mode;
@@ -305,8 +307,8 @@
       ph.hidden = !fixed;
       ring.classList.toggle('is-fixed', fixed && prev === 'before');
       Object.assign(ring.style, fixed
-        ? { position: 'fixed', top: `${(innerHeight - h) / 2}px`, left: `${left}px`, width: `${w}px`, margin: '0', translate: '' }
-        : { position: '', top: '', left: '', width: '', margin: '', translate: m === 'after' ? `${dx.toFixed(1)}px ${max.toFixed(1)}px` : '' });
+        ? { position: 'fixed', top: `${(innerHeight / Z() - h) / 2}px`, left: `${left / Z()}px`, width: `${w}px`, margin: '0', translate: '' }
+        : { position: '', top: '', left: '', width: '', margin: '', translate: m === 'after' ? `${(dx / Z()).toFixed(1)}px ${(max / Z()).toFixed(1)}px` : '' });
       // celular: entra centrado y, ya fijo, se desliza a la derecha para enmarcar los dots;
       // si viene de abajo ya está a la derecha; al volver arriba regresa al centro deslizándose
       if (fixed && dx) {
@@ -323,7 +325,7 @@
       // medidas sin la escala de la animación de entrada (reveal--scale)
       const r = ring.getBoundingClientRect();
       w = ring.offsetWidth; h = ring.offsetHeight;
-      left = r.left + (r.width - w) / 2 - (parseFloat(getComputedStyle(ring).translate.split(' ')[0]) || 0);
+      left = r.left + (r.width - w * Z()) / 2 - (parseFloat(getComputedStyle(ring).translate.split(' ')[0]) || 0) * Z();
       ph.style.cssText = `width:${w}px;height:${h}px`;
       const center = r.top + scrollY + r.height / 2;                 // centro del aro en el documento
       const wrapTop = wrap.getBoundingClientRect().top + scrollY;
