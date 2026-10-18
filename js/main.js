@@ -329,7 +329,7 @@
       ph.style.cssText = `width:${w}px;height:${h}px`;
       const center = r.top + scrollY + r.height / 2;                 // centro del aro en el documento
       const wrapTop = wrap.getBoundingClientRect().top + scrollY;
-      const run = wrap.offsetHeight - innerHeight;                   // tramo en que los servicios están fijos
+      const run = wrap.getBoundingClientRect().height - innerHeight; // tramo en que los servicios están fijos (en px de pantalla, también con zoom)
       s0 = center - innerHeight / 2;                                 // el aro llega a media pantalla
       max = Math.max(0, wrapTop + run - s0);                         // se suelta cuando termina el bloque fijo
       // en celular sigue bajando hasta toparse con "De la estrategia a la acción"
@@ -379,7 +379,7 @@
       dots.forEach((d, k) => d.classList.toggle('active', k === Math.max(0, step)));
     };
     dots.forEach((d, k) => d.addEventListener('click', () => {
-      const run = wrap.offsetHeight - innerHeight;
+      const run = wrap.getBoundingClientRect().height - innerHeight;
       const top = wrap.getBoundingClientRect().top + scrollY;
       scrollTo({ top: top + run * ((k + .5) / n), behavior: reduce ? 'auto' : 'smooth' });
     }));
