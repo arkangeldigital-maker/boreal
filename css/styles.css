@@ -1635,3 +1635,5 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 @media (max-width:820px){.pj-card.is-open .pj-card__arrow{width:38px;top:50%;transform:translateY(-50%) rotate(180deg)}}
 /* Pantallas de más de 1920 px: el contenedor ocupa ~85% del ancho (con el escalado proporcional) */
 html.wide{--max:1632px}
+/* Pantallas > 1920 px: foto de Karen en Borealízate 10% más angosta; el texto gana ese espacio */
+html.wide .bhero__grid{grid-template-columns:552fr 699fr}
