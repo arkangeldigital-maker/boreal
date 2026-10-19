@@ -1647,3 +1647,9 @@ html.wide .bhero__grid{grid-template-columns:552fr 699fr}
 }
 /* Footer: frase debajo de "En sinergia con" */
 .footer__cols .footer__brand .footer__tag{margin:10px 0 0;font-size:clamp(14px,1.1vw,17px);text-align:inherit}
+/* Home · Servicios: área de clic más grande en "Ver más detalles"; toda la tarjeta activa lleva al detalle
+   y las tarjetas que no están activas no estorban el clic */
+.svc-item:not(.active){pointer-events:none}
+.svc-item.active{cursor:pointer}
+.svc-item .link{position:relative}
+.svc-item .link::before{content:"";position:absolute;inset:-14px -24px}

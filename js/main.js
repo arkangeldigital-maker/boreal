@@ -378,6 +378,11 @@
       wrap.classList.toggle('is-on', step >= 0);
       dots.forEach((d, k) => d.classList.toggle('active', k === Math.max(0, step)));
     };
+    // tocar cualquier parte del servicio activo abre su detalle
+    items.forEach(it => it.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      const a = it.querySelector('a.link'); if (a) location.href = a.href;
+    }));
     dots.forEach((d, k) => d.addEventListener('click', () => {
       const run = wrap.getBoundingClientRect().height - innerHeight;
       const top = wrap.getBoundingClientRect().top + scrollY;
