@@ -1637,3 +1637,11 @@ body.on-dark .header .nav a:hover,body.on-dark .header .nav a.active{color:#fff}
 html.wide{--max:1632px}
 /* Pantallas > 1920 px: foto de Karen en Borealízate 10% más angosta; el texto gana ese espacio */
 html.wide .bhero__grid{grid-template-columns:552fr 699fr}
+/* Home: resplandor blanco difuminado detrás de "Convertimos tu visión en resultados tangibles" (como en el hero de Borealízate) */
+.hero__tag{isolation:isolate}
+.hero__tag::before{content:"";position:absolute;z-index:-1;inset:-34px -60px;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(255,255,255,.97) 55%,rgba(255,255,255,.75) 75%,rgba(255,255,255,0) 100%);filter:blur(12px);pointer-events:none}
+/* Home (celular): resplandor blanco detrás del texto chico del hero para que no se pierda con el aro */
+@media (max-width:820px){
+  body[data-page="home"] .hero__lead,body[data-page="home"] .hero .eyebrow{position:relative;isolation:isolate}
+  body[data-page="home"] .hero__lead::before,body[data-page="home"] .hero .eyebrow::after{content:"";position:absolute;z-index:-1;inset:-22px -40px -22px -30px;background:radial-gradient(ellipse 62% 62% at 45% 50%,rgba(255,255,255,.95) 55%,rgba(255,255,255,.7) 76%,rgba(255,255,255,0) 100%);filter:blur(12px);pointer-events:none;display:block;width:auto;height:auto;transform:none}
+}
