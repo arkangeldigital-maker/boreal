@@ -1653,3 +1653,6 @@ html.wide .bhero__grid{grid-template-columns:552fr 699fr}
 .svc-item.active{cursor:pointer}
 .svc-item .link{position:relative}
 .svc-item .link::before{content:"";position:absolute;inset:-14px -24px}
+/* Borealízate: el título queda delante del aro, con un resplandor blanco difuminado detrás */
+.bhero h1{position:relative;z-index:2;isolation:isolate}
+.bhero h1::before{content:"";position:absolute;z-index:-1;inset:-30px -70px -30px -40px;background:radial-gradient(ellipse 60% 62% at 48% 50%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.7) 78%,rgba(255,255,255,0) 100%);filter:blur(14px);pointer-events:none}
