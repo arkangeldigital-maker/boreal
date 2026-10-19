@@ -87,7 +87,7 @@
             <a href="https://wa.me/522291445559" target="_blank" rel="noopener"><span class="ic">${ico.wa}</span>(229) 144 55 59</a>
             ${socials}
           </div>
-          <div class="footer__brand reveal" style="--d:.2s">${logo()}${isContact ? '' : sinergia}</div>
+          <div class="footer__brand reveal" style="--d:.2s">${logo()}${isContact ? '' : sinergia}<p class="footer__tag">Estrategia. Dirección. Crecimiento.</p></div>
         </div>
         <nav class="footer__nav" aria-label="Pie">${links.map(([h, t]) => `<a href="${h}">${t}</a>`).join('')}</nav>
         <p class="footer__legal"><a href="assets/legal/aviso-de-privacidad.pdf" target="_blank" rel="noopener">Aviso de privacidad</a> <a href="assets/legal/politica-de-cookies.pdf" target="_blank" rel="noopener">Política de cookies</a> · © ${new Date().getFullYear()}</p>

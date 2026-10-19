@@ -1645,3 +1645,5 @@ html.wide .bhero__grid{grid-template-columns:552fr 699fr}
   body[data-page="home"] .hero__lead,body[data-page="home"] .hero .eyebrow{position:relative;isolation:isolate}
   body[data-page="home"] .hero__lead::before,body[data-page="home"] .hero .eyebrow::after{content:"";position:absolute;z-index:-1;inset:-22px -40px -22px -30px;background:radial-gradient(ellipse 62% 62% at 45% 50%,rgba(255,255,255,.95) 55%,rgba(255,255,255,.7) 76%,rgba(255,255,255,0) 100%);filter:blur(12px);pointer-events:none;display:block;width:auto;height:auto;transform:none}
 }
+/* Footer: frase debajo de "En sinergia con" */
+.footer__cols .footer__brand .footer__tag{margin:10px 0 0;font-size:clamp(14px,1.1vw,17px);text-align:inherit}
