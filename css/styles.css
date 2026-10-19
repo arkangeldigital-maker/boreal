@@ -1658,3 +1658,4 @@ html.wide .bhero__grid{grid-template-columns:552fr 699fr}
 .bhero h1::before{content:"";position:absolute;z-index:-1;inset:-30px -70px -30px -40px;background:radial-gradient(ellipse 60% 62% at 48% 50%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.7) 78%,rgba(255,255,255,0) 100%);filter:blur(14px);pointer-events:none}
 /* Borealízate (escritorio): aro un poco más abajo para que no toque el título */
 @media (min-width:821px){.bhero__ring{top:-90px}}
+@media (min-width:821px){.bhero__ring{left:calc(100% - 95px)}}
